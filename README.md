@@ -123,5 +123,5 @@ laptop_marketing/
 3. **Admin Login**:
    - Web App: `https://script.google.com/macros/s/.../exec?page=admin`
    - Local: `http://localhost:8000/manaki_admin.html`
-   - Password: `Fakeme@12345`
+   
 
