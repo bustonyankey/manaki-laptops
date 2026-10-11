@@ -1,0 +1,5915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <meta name="theme-color" content="#090a0f">
+  <title>Admin Portal - Manaki Laptop Deals Management</title>
+  <style>
+/* ==========================================================================
+   MANAKI LAPTOP DEALS - SHOPIFY DAWN/PREMIUM THEME STYLES
+   Iconic, modern, ultra-clean Shopify e-commerce aesthetic
+   ========================================================================== */
+
+:root {
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-heading: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Shopify Color Palette */
+  --color-page-bg: #f8f9fa;
+  --color-card-bg: #ffffff;
+  --color-surface-subtle: #f1f3f5;
+  --color-surface-hover: #e9ecef;
+  --color-border: #e2e8f0;
+  --color-border-dark: #cbd5e1;
+
+  --color-text-main: #121212;
+  --color-text-secondary: #4b5563;
+  --color-text-muted: #6b7280;
+  --color-text-light: #9ca3af;
+
+  /* Shopify & Action Accents */
+  --shopify-black: #121212;
+  --shopify-green: #008060;
+  --shopify-green-hover: #006e52;
+  --shopify-green-light: #e3f1df;
+  --color-sale-red: #d82c0d;
+  --color-sale-badge: #ffebe8;
+  --color-sold-badge: #e4e5e7;
+  --color-whatsapp: #25d366;
+  --color-whatsapp-hover: #1ebc59;
+
+  /* Sizing & Radius */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-pill: 9999px;
+
+  /* Elevation */
+  --shadow-card: 0 2px 10px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.03);
+  --shadow-card-hover: 0 10px 25px rgba(0, 0, 0, 0.08), 0 4px 10px rgba(0, 0, 0, 0.04);
+  --shadow-dropdown: 0 12px 30px rgba(0, 0, 0, 0.12);
+
+  --max-content-width: 1280px;
+  --bottom-nav-height: 64px;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* ==========================================================================
+   RESET & BASE
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-page-bg);
+  color: var(--color-text-main);
+  line-height: 1.5;
+  min-height: 100%;
+  overflow-x: hidden;
+  padding-bottom: calc(var(--bottom-nav-height) + var(--safe-bottom) + 20px);
+}
+
+@media (min-width: 768px) {
+  body {
+    padding-bottom: 0;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+  outline: none;
+}
+
+input, select, textarea {
+  font-family: inherit;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ==========================================================================
+   SHOPIFY TOP ANNOUNCEMENT BAR
+   ========================================================================== */
+.announcement-bar {
+  background-color: #121212;
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.55rem 1rem;
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+
+.announcement-content {
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.announcement-text {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.announcement-link {
+  color: #38bdf8;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ==========================================================================
+   SHOPIFY MAIN HEADER & NAVIGATION
+   ========================================================================== */
+.shopify-header {
+  position: sticky;
+  top: 0;
+  z-index: 90;
+  background-color: #ffffff;
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+}
+
+.header-inner {
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding: 0.85rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+/* Shopify Brand Logo */
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.brand-icon-box {
+  width: 38px;
+  height: 38px;
+  background-color: #121212;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 1.2rem;
+}
+
+.brand-text-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #121212;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.brand-tagline {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--shopify-green);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Desktop Navigation Menu Links */
+.nav-links-desktop {
+  display: none;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+@media (min-width: 900px) {
+  .nav-links-desktop {
+    display: flex;
+  }
+}
+
+.nav-link-item {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  padding: 0.4rem 0.2rem;
+  position: relative;
+  transition: color 0.15s ease;
+}
+
+.nav-link-item:hover,
+.nav-link-item.active {
+  color: var(--shopify-black);
+}
+
+.nav-link-item.active::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--shopify-black);
+}
+
+/* Search Input (Shopify Center Bar) */
+.header-search-bar {
+  flex: 1;
+  max-width: 440px;
+  position: relative;
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .header-search-bar {
+    display: block;
+  }
+}
+
+.search-field-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.search-field-wrapper input {
+  width: 100%;
+  padding: 0.65rem 1rem 0.65rem 2.5rem;
+  background-color: #f4f6f8;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  font-size: 0.88rem;
+  color: var(--color-text-main);
+  transition: all 0.2s ease;
+}
+
+.search-field-wrapper input:focus {
+  outline: none;
+  background-color: #ffffff;
+  border-color: #121212;
+  box-shadow: 0 0 0 2px rgba(18, 18, 18, 0.1);
+}
+
+.search-icon-left {
+  position: absolute;
+  left: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-muted);
+  pointer-events: none;
+}
+
+.search-clear-btn {
+  position: absolute;
+  right: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-muted);
+  padding: 4px;
+  display: none;
+}
+
+.search-clear-btn.visible {
+  display: block;
+}
+
+/* Header Action Icons (Shopify Right Nav) */
+.header-right-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.header-icon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-main);
+  position: relative;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.header-icon-btn:hover {
+  background-color: var(--color-surface-subtle);
+}
+
+.counter-badge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background-color: #121212;
+  color: #ffffff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-header-wa {
+  display: none;
+  align-items: center;
+  gap: 0.45rem;
+  background-color: var(--shopify-black);
+  color: #ffffff;
+  padding: 0.55rem 1.1rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.84rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+@media (min-width: 640px) {
+  .btn-header-wa {
+    display: inline-flex;
+  }
+}
+
+.btn-header-wa:hover {
+  background-color: #333333;
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   MOBILE SEARCH ROW (VISIBLE ONLY ON MOBILE)
+   ========================================================================== */
+.mobile-search-strip {
+  background-color: #ffffff;
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+@media (min-width: 640px) {
+  .mobile-search-strip {
+    display: none;
+  }
+}
+
+.mobile-search-strip input {
+  width: 100%;
+  padding: 0.65rem 1rem 0.65rem 2.4rem;
+  background-color: #f4f6f8;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   SHOPIFY HERO / BANNER SECTION
+   ========================================================================== */
+.shopify-hero-section {
+  max-width: var(--max-content-width);
+  margin: 1.25rem auto 0;
+  padding: 0 1rem;
+}
+
+.shopify-hero-banner {
+  background: linear-gradient(135deg, #18181b 0%, #09090b 100%);
+  color: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 2.25rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+@media (min-width: 768px) {
+  .shopify-hero-banner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3rem 2.75rem;
+  }
+}
+
+.hero-pill-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--radius-pill);
+  width: fit-content;
+}
+
+.hero-headline {
+  font-size: 1.85rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  color: #ffffff;
+}
+
+@media (min-width: 768px) {
+  .hero-headline {
+    font-size: 2.5rem;
+  }
+}
+
+.hero-subheadline {
+  font-size: 0.95rem;
+  color: #d1d5db;
+  max-width: 540px;
+  line-height: 1.5;
+}
+
+.hero-cta-buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.btn-shopify-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #ffffff;
+  color: #121212;
+  font-size: 0.92rem;
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-pill);
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-shopify-primary:hover {
+  background-color: #f4f4f5;
+  transform: translateY(-1px);
+}
+
+.btn-shopify-wa {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--color-whatsapp);
+  color: #052e16;
+  font-size: 0.92rem;
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-pill);
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+}
+
+.btn-shopify-wa:hover {
+  background-color: var(--color-whatsapp-hover);
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   SHOPIFY TRUST VALUE BAR (4 TICKER COLUMNS)
+   ========================================================================== */
+.trust-ticker-strip {
+  max-width: var(--max-content-width);
+  margin: 1rem auto 0;
+  padding: 0 1rem;
+}
+
+.trust-ticker-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  background-color: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .trust-ticker-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.trust-ticker-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.trust-ticker-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #f4f6f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.trust-ticker-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.trust-ticker-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  line-height: 1.2;
+}
+
+.trust-ticker-sub {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+}
+
+/* ==========================================================================
+   SHOPIFY COLLECTION FILTER PILLS & TOOLBAR
+   ========================================================================== */
+.collection-header-strip {
+  max-width: var(--max-content-width);
+  margin: 1.75rem auto 0;
+  padding: 0 1rem;
+}
+
+.collection-title-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.collection-heading {
+  font-size: 1.45rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #121212;
+}
+
+.collection-subheading {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+/* Horizontal Filter Pills */
+.filter-pills-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding: 0.4rem 0;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.filter-pills-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.shopify-pill {
+  flex-shrink: 0;
+  padding: 0.5rem 1rem;
+  background-color: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  transition: all 0.15s ease;
+  user-select: none;
+  cursor: pointer;
+}
+
+.shopify-pill:hover {
+  background-color: var(--color-surface-subtle);
+  border-color: var(--color-border-dark);
+  color: #121212;
+}
+
+.shopify-pill.active {
+  background-color: #121212;
+  color: #ffffff;
+  border-color: #121212;
+}
+
+/* Collection Toolbar (Count & Sort) */
+.collection-toolbar {
+  max-width: var(--max-content-width);
+  margin: 0.75rem auto 0;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.product-count-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.sort-dropdown-shopify {
+  background-color: #ffffff;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-main);
+  font-size: 0.84rem;
+  font-weight: 600;
+  padding: 0.5rem 2rem 0.5rem 0.9rem;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%234b5563' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  transition: border-color 0.15s ease;
+}
+
+.sort-dropdown-shopify:focus {
+  outline: none;
+  border-color: #121212;
+}
+
+/* ==========================================================================
+   SHOPIFY PRODUCT CARD GRID (DAWN STYLE)
+   ========================================================================== */
+.collection-grid-section {
+  max-width: var(--max-content-width);
+  margin: 1.25rem auto 3rem;
+  padding: 0 1rem;
+}
+
+.shopify-product-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.25rem;
+}
+
+@media (min-width: 500px) {
+  .shopify-product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+@media (min-width: 840px) {
+  .shopify-product-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1100px) {
+  .shopify-product-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+/* Single Product Card */
+.shopify-card {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease, border-color 0.2s ease;
+  position: relative;
+}
+
+.shopify-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-border-dark);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* Card Image Wrapper with Shopify Neutral Canvas */
+.card-image-box {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  background-color: #f7f7f8;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.shopify-card:hover .card-product-img {
+  transform: scale(1.05);
+}
+
+/* Shopify Badges (Sale, Sold Out, Hot) */
+.shopify-badge-container {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.shopify-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 0.68rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.25rem 0.55rem;
+  border-radius: var(--radius-xs);
+}
+
+.badge-sale {
+  background-color: var(--color-sale-red);
+  color: #ffffff;
+}
+
+.badge-hot {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.badge-instock {
+  background-color: var(--shopify-green-light);
+  color: var(--shopify-green);
+  border: 1px solid rgba(0, 128, 96, 0.2);
+}
+
+.badge-soldout {
+  background-color: var(--color-sold-badge);
+  color: #555555;
+}
+
+/* Wishlist Heart Icon Button */
+.shopify-card-wishlist {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(6px);
+  color: #4b5563;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  z-index: 3;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.shopify-card-wishlist:hover {
+  transform: scale(1.1);
+  color: var(--color-sale-red);
+  background-color: #ffffff;
+}
+
+.shopify-card-wishlist.active {
+  color: var(--color-sale-red);
+  background-color: #ffffff;
+}
+
+/* Photo Count Tag */
+.photo-count-tag {
+  position: absolute;
+  bottom: 0.6rem;
+  right: 0.6rem;
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(4px);
+  color: #121212;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.2rem 0.45rem;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--color-border);
+}
+
+/* Card Information Section */
+.card-info-content {
+  padding: 1rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card-vendor-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+  margin-bottom: 0.25rem;
+}
+
+.card-product-title {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  line-height: 1.35;
+  margin-bottom: 0.5rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-product-title a:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Specs Badges Row */
+.card-specs-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 0.85rem;
+}
+
+.shopify-spec-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.2rem 0.45rem;
+  background-color: #f4f6f8;
+  color: #374151;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--color-border);
+}
+
+/* Pricing Row */
+.card-pricing-block {
+  margin-top: auto;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.price-display-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.shopify-price-now {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #121212;
+  letter-spacing: -0.01em;
+}
+
+.shopify-price-compare {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  text-decoration: line-through;
+}
+
+.card-btn-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.btn-quick-view {
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-pill);
+  background-color: #ffffff;
+  border: 1px solid #121212;
+  color: #121212;
+  font-size: 0.8rem;
+  font-weight: 700;
+  transition: all 0.15s ease;
+}
+
+.btn-quick-view:hover {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.btn-card-whatsapp {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--color-whatsapp);
+  color: #052e16;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  transition: transform 0.15s ease;
+}
+
+.btn-card-whatsapp:hover {
+  transform: scale(1.1);
+  background-color: var(--color-whatsapp-hover);
+}
+
+/* ==========================================================================
+   SHOPIFY MOBILE BOTTOM NAVIGATION BAR
+   ========================================================================== */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: calc(var(--bottom-nav-height) + var(--safe-bottom));
+  padding-bottom: var(--safe-bottom);
+  background-color: #ffffff;
+  border-top: 1px solid var(--color-border);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 100;
+}
+
+@media (min-width: 768px) {
+  .bottom-nav {
+    display: none;
+  }
+}
+
+.bottom-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  color: var(--color-text-muted);
+  font-size: 0.68rem;
+  font-weight: 600;
+  flex: 1;
+  height: 100%;
+  position: relative;
+  transition: color 0.15s ease;
+}
+
+.bottom-nav-item svg {
+  width: 22px;
+  height: 22px;
+}
+
+.bottom-nav-item.active {
+  color: #121212;
+}
+
+.bottom-nav-badge {
+  position: absolute;
+  top: 6px;
+  right: calc(50% - 16px);
+  background-color: #121212;
+  color: white;
+  font-size: 0.6rem;
+  font-weight: 800;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Floating WhatsApp Action Button */
+.fab-whatsapp {
+  position: fixed;
+  bottom: calc(var(--bottom-nav-height) + var(--safe-bottom) + 16px);
+  right: 16px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+  z-index: 85;
+  transition: all 0.2s ease;
+}
+
+@media (min-width: 768px) {
+  .fab-whatsapp {
+    bottom: 24px;
+    right: 24px;
+    width: 56px;
+    height: 56px;
+    font-size: 1.7rem;
+  }
+}
+
+.fab-whatsapp:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5);
+}
+
+/* ==========================================================================
+   SHOPIFY PRODUCT DETAIL PAGE STYLES (detail.html)
+   ========================================================================== */
+.shopify-detail-container {
+  max-width: var(--max-content-width);
+  margin: 1.5rem auto 4rem;
+  padding: 0 1.25rem;
+}
+
+.shopify-breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.shopify-breadcrumbs a:hover {
+  color: #121212;
+  text-decoration: underline;
+}
+
+.shopify-product-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+@media (min-width: 900px) {
+  .shopify-product-layout {
+    grid-template-columns: 1.15fr 1fr;
+    gap: 3.5rem;
+  }
+}
+
+/* Left: Media Gallery */
+.shopify-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.shopify-main-image-wrap {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  background-color: #f7f7f8;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  cursor: zoom-in;
+}
+
+.shopify-main-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background-color: #ffffff;
+  transition: transform 0.3s ease;
+}
+
+.gallery-nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #121212;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  transition: all 0.2s ease;
+}
+
+.gallery-nav-arrow:hover {
+  background-color: #ffffff;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.gallery-nav-arrow.prev { left: 0.75rem; }
+.gallery-nav-arrow.next { right: 0.75rem; }
+
+.shopify-thumbnails-list {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  overflow-x: auto;
+  padding: 0.3rem 0;
+  scrollbar-width: thin;
+}
+
+.shopify-thumb-box {
+  flex-shrink: 0;
+  width: 72px;
+  height: 56px;
+  border-radius: var(--radius-xs);
+  overflow: hidden;
+  border: 2px solid transparent;
+  cursor: pointer;
+  background-color: #f7f7f8;
+  opacity: 0.7;
+  transition: all 0.2s ease;
+}
+
+.shopify-thumb-box:hover {
+  opacity: 1;
+}
+
+.shopify-thumb-box.active {
+  border-color: #121212;
+  opacity: 1;
+}
+
+.shopify-thumb-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Right: Product Purchase Form */
+.shopify-product-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.product-vendor-subtitle {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--shopify-green);
+}
+
+.shopify-product-heading {
+  font-size: 1.85rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #121212;
+  line-height: 1.2;
+}
+
+@media (min-width: 640px) {
+  .shopify-product-heading {
+    font-size: 2.25rem;
+  }
+}
+
+/* Shopify Price Card */
+.shopify-price-strip {
+  background-color: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.price-main-bold {
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: #121212;
+}
+
+.price-compare-sub {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+}
+
+/* Stock Status Ticker */
+.stock-ticker-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--shopify-green);
+}
+
+.stock-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--shopify-green);
+  box-shadow: 0 0 0 3px rgba(0, 128, 96, 0.2);
+}
+
+/* Shopify Purchase Buttons */
+.shopify-buy-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.btn-shopify-checkout-wa {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background-color: var(--color-whatsapp);
+  color: #032d16;
+  font-size: 1.05rem;
+  font-weight: 800;
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.35);
+  transition: all 0.2s ease;
+}
+
+.btn-shopify-checkout-wa:hover {
+  background-color: var(--color-whatsapp-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px rgba(37, 211, 102, 0.45);
+}
+
+.shopify-action-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.btn-shopify-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  background-color: #ffffff;
+  border: 1px solid var(--color-border);
+  color: #121212;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-pill);
+  transition: all 0.15s ease;
+}
+
+.btn-shopify-secondary:hover {
+  background-color: #f4f6f8;
+  border-color: var(--color-border-dark);
+}
+
+/* Specs Accordion / Card */
+.shopify-specs-table-card {
+  background-color: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+}
+
+.specs-table-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #121212;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.shopify-spec-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.shopify-spec-table tr {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.shopify-spec-table tr:last-child {
+  border-bottom: none;
+}
+
+.shopify-spec-table td {
+  padding: 0.75rem 0.5rem;
+  font-size: 0.9rem;
+}
+
+.spec-key {
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  width: 40%;
+}
+
+.spec-val {
+  color: #121212;
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   SHOPIFY FOOTER
+   ========================================================================== */
+.shopify-footer {
+  background-color: #121212;
+  color: #ffffff;
+  padding: 3rem 1.25rem 2rem;
+  border-top: 1px solid #27272a;
+  margin-top: 4rem;
+}
+
+.footer-inner {
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .footer-inner {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+}
+
+.footer-brand-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.footer-desc {
+  font-size: 0.88rem;
+  color: #a1a1aa;
+  line-height: 1.6;
+  max-width: 420px;
+}
+
+.footer-col-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+  color: #ffffff;
+}
+
+.footer-links-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: #a1a1aa;
+}
+
+.footer-links-list a:hover {
+  color: #ffffff;
+}
+
+.footer-bottom-bar {
+  max-width: var(--max-content-width);
+  margin: 2rem auto 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid #27272a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: #71717a;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Lightbox Modal */
+.lightbox-modal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(12px);
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.lightbox-modal.active {
+  display: flex;
+}
+
+.lightbox-img {
+  max-width: 95vw;
+  max-height: 88vh;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.lightbox-close:hover {
+  background-color: rgba(255, 255, 255, 0.35);
+}
+
+/* Toast Notifications */
+.toast-container {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 1100;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  pointer-events: none;
+}
+
+.toast {
+  pointer-events: auto;
+  background-color: #121212;
+  border: 1px solid #27272a;
+  color: #ffffff;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  font-size: 0.88rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  animation: slideInDown 0.3s ease forwards;
+}
+
+.toast.success {
+  background-color: #008060;
+  color: #ffffff;
+  border-color: #006e52;
+}
+
+.toast.error {
+  background-color: #d82c0d;
+  color: #ffffff;
+  border-color: #b52207;
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 4rem 1rem;
+  grid-column: 1 / -1;
+  background-color: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.empty-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.empty-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #121212;
+  margin-bottom: 0.5rem;
+}
+
+.empty-desc {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  max-width: 400px;
+  margin: 0 auto 1.5rem;
+}
+
+</style>
+  <style>
+/* ==========================================================================
+   MANAKI LAPTOP DEALS - SHOPIFY POLARIS ADMIN DASHBOARD
+   ========================================================================== */
+
+.admin-body {
+  background-color: #f6f6f7;
+  color: #202223;
+  min-height: 100vh;
+  padding-bottom: 3rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ==========================================================================
+   POLARIS LOGIN SCREEN
+   ========================================================================== */
+.admin-login-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: #f1f2f4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 500;
+  padding: 1.5rem;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  background-color: #ffffff;
+  border: 1px solid #d2d5d8;
+  border-radius: 12px;
+  padding: 2.25rem 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.login-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: #008060;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  margin: 0 auto 1.25rem;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(0, 128, 96, 0.3);
+}
+
+.login-title {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #202223;
+  margin-bottom: 0.35rem;
+}
+
+.login-subtitle {
+  font-size: 0.85rem;
+  color: #6d7175;
+  margin-bottom: 1.75rem;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.input-group {
+  position: relative;
+  text-align: left;
+}
+
+.input-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #202223;
+  margin-bottom: 0.4rem;
+}
+
+.input-control {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  background-color: #ffffff;
+  border: 1px solid #8c9196;
+  border-radius: 8px;
+  color: #202223;
+  font-size: 0.92rem;
+  transition: all 0.2s ease;
+}
+
+.input-control:focus {
+  outline: none;
+  border-color: #008060;
+  box-shadow: 0 0 0 2px rgba(0, 128, 96, 0.2);
+}
+
+.password-input-wrapper {
+  position: relative;
+}
+
+.toggle-pwd-btn {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6d7175;
+  padding: 4px;
+}
+
+.login-error-msg {
+  color: #d82c0d;
+  font-size: 0.82rem;
+  font-weight: 600;
+  display: none;
+  text-align: center;
+}
+
+.login-error-msg.visible {
+  display: block;
+}
+
+.btn-login {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #008060;
+  color: white;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 128, 96, 0.3);
+  transition: all 0.2s ease;
+  margin-top: 0.5rem;
+}
+
+.btn-login:hover {
+  background-color: #006e52;
+}
+
+.login-footer-link {
+  margin-top: 1.25rem;
+  font-size: 0.84rem;
+  color: #6d7175;
+  display: inline-block;
+}
+
+.login-footer-link:hover {
+  color: #202223;
+  text-decoration: underline;
+}
+
+.shake {
+  animation: shake 0.4s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-8px); }
+  40%, 80% { transform: translateX(8px); }
+}
+
+/* ==========================================================================
+   POLARIS ADMIN DASHBOARD
+   ========================================================================== */
+.admin-portal {
+  display: none;
+}
+
+.admin-portal.active {
+  display: block;
+}
+
+.admin-navbar {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  border-bottom: 1px solid #2e2e2e;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.admin-nav-container {
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding: 0.85rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.admin-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.admin-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.btn-admin-nav {
+  padding: 0.45rem 0.9rem;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: #ffffff;
+  border: 1px solid #d2d5d8;
+  color: #202223;
+  transition: all 0.15s ease;
+}
+
+.btn-admin-nav:hover {
+  background-color: #f1f2f3;
+}
+
+.btn-admin-nav.danger {
+  color: #d82c0d;
+  border-color: #fed3d1;
+  background-color: #fff4f4;
+}
+
+.btn-admin-nav.danger:hover {
+  background-color: #ffebe8;
+}
+
+/* Stats / KPI Cards */
+.admin-stats-grid {
+  max-width: var(--max-content-width);
+  margin: 1.5rem auto 0;
+  padding: 0 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .admin-stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.stat-kpi-card {
+  background-color: #ffffff;
+  border: 1px solid #d2d5d8;
+  border-radius: 10px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.stat-kpi-title {
+  font-size: 0.78rem;
+  color: #6d7175;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.stat-kpi-val {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: #202223;
+}
+
+.stat-kpi-badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #008060;
+}
+
+/* Toolbar Controls */
+.admin-toolbar-section {
+  max-width: var(--max-content-width);
+  margin: 1.5rem auto 0;
+  padding: 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .admin-toolbar-section {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.admin-search-wrapper {
+  flex: 1;
+  max-width: 360px;
+}
+
+.admin-tools-btns {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.btn-add-laptop {
+  background-color: #008060;
+  color: #ffffff;
+  padding: 0.55rem 1.15rem;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.86rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0, 128, 96, 0.25);
+  transition: all 0.15s ease;
+}
+
+.btn-add-laptop:hover {
+  background-color: #006e52;
+}
+
+/* Table Card */
+.admin-table-section {
+  max-width: var(--max-content-width);
+  margin: 1rem auto 3rem;
+  padding: 0 1.25rem;
+}
+
+.admin-table-card {
+  background-color: #ffffff;
+  border: 1px solid #d2d5d8;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.table-responsive {
+  overflow-x: auto;
+  width: 100%;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.88rem;
+}
+
+.admin-table th {
+  background-color: #f7f7f8;
+  padding: 0.85rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #5c5f62;
+  border-bottom: 1px solid #e1e3e5;
+  white-space: nowrap;
+}
+
+.admin-table td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid #e1e3e5;
+  vertical-align: middle;
+}
+
+.admin-table tr:last-child td {
+  border-bottom: none;
+}
+
+.admin-table tr:hover {
+  background-color: #fcfcfc;
+}
+
+.table-thumb {
+  width: 52px;
+  height: 40px;
+  border-radius: 4px;
+  object-fit: cover;
+  background-color: #f4f6f8;
+  border: 1px solid #e1e3e5;
+}
+
+.table-title-cell {
+  max-width: 260px;
+}
+
+.table-laptop-title {
+  font-weight: 700;
+  color: #202223;
+  line-height: 1.25;
+}
+
+.table-laptop-specs {
+  font-size: 0.75rem;
+  color: #6d7175;
+}
+
+.table-price-input {
+  width: 100px;
+  padding: 0.35rem 0.5rem;
+  background-color: #ffffff;
+  border: 1px solid #8c9196;
+  border-radius: 4px;
+  color: #202223;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.table-price-input:focus {
+  outline: none;
+  border-color: #008060;
+  box-shadow: 0 0 0 2px rgba(0, 128, 96, 0.2);
+}
+
+.status-pill-toggle {
+  cursor: pointer;
+  user-select: none;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: all 0.15s ease;
+}
+
+.status-pill-toggle.available {
+  background-color: #e3f1df;
+  color: #008060;
+  border: 1px solid rgba(0, 128, 96, 0.3);
+}
+
+.status-pill-toggle.sold {
+  background-color: #f1f2f3;
+  color: #5c5f62;
+  border: 1px solid #d2d5d8;
+}
+
+.table-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.btn-action-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  border: 1px solid #d2d5d8;
+  color: #5c5f62;
+  transition: all 0.15s ease;
+  font-size: 0.88rem;
+}
+
+.btn-action-icon:hover {
+  color: #202223;
+  background-color: #f6f6f7;
+  border-color: #8c9196;
+}
+
+.btn-action-icon.edit:hover {
+  color: #008060;
+  border-color: #008060;
+}
+
+.btn-action-icon.delete:hover {
+  color: #d82c0d;
+  border-color: #d82c0d;
+  background-color: #fff4f4;
+}
+
+/* ==========================================================================
+   POLARIS MODAL
+   ========================================================================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(32, 34, 35, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-card {
+  width: 100%;
+  max-width: 720px;
+  max-height: 90vh;
+  background-color: #ffffff;
+  border: 1px solid #d2d5d8;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.modal-header {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid #e1e3e5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #202223;
+}
+
+.modal-close-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  background-color: #f1f2f3;
+  color: #5c5f62;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: all 0.15s ease;
+}
+
+.modal-close-btn:hover {
+  color: #202223;
+  background-color: #e1e3e5;
+}
+
+.modal-body {
+  padding: 1.5rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 600px) {
+  .form-grid-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.form-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 600px) {
+  .form-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.features-checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.6rem;
+  background-color: #f7f7f8;
+  padding: 0.85rem;
+  border-radius: 6px;
+  border: 1px solid #e1e3e5;
+}
+
+@media (min-width: 600px) {
+  .features-checkbox-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.feature-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.82rem;
+  color: #202223;
+  cursor: pointer;
+}
+
+.feature-checkbox-label input {
+  accent-color: #008060;
+}
+
+.images-manager-list {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  overflow-x: auto;
+  padding: 0.5rem 0;
+}
+
+.image-preview-chip {
+  position: relative;
+  width: 72px;
+  height: 56px;
+  border-radius: 4px;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 1px solid #d2d5d8;
+}
+
+.image-preview-chip img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-remove-btn {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #d82c0d;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+}
+
+.modal-footer {
+  padding: 1.25rem 1.5rem;
+  border-top: 1px solid #e1e3e5;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  background-color: #f7f7f8;
+}
+
+.btn-primary {
+  background-color: #008060;
+  color: #ffffff;
+  padding: 0.65rem 1.25rem;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: all 0.15s ease;
+}
+
+.btn-primary:hover {
+  background-color: #006e52;
+}
+
+.btn-card-view {
+  background-color: #ffffff;
+  border: 1px solid #d2d5d8;
+  color: #202223;
+  padding: 0.65rem 1.25rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.15s ease;
+}
+
+.btn-card-view:hover {
+  background-color: #f1f2f3;
+}
+
+/* ==========================================================================
+   GOOGLE DRIVE & APPS SCRIPT CLOUD BANNER
+   ========================================================================== */
+.admin-cloud-banner {
+  margin-bottom: 1.5rem;
+}
+
+.cloud-card-inner {
+  background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+  border: 1px solid #bbf7d0;
+  border-radius: 12px;
+  padding: 1.1rem 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  box-shadow: 0 2px 8px rgba(0, 128, 96, 0.06);
+}
+
+.cloud-card-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cloud-icon-pill {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background-color: #e3f1df;
+  color: #008060;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cloud-card-title {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #121212;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.cloud-status-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.15rem 0.55rem;
+  border-radius: 9999px;
+  background-color: #e3f1df;
+  color: #008060;
+  border: 1px solid #a7f3d0;
+}
+
+.cloud-card-sub {
+  font-size: 0.83rem;
+  color: #4b5563;
+  margin-top: 0.2rem;
+}
+
+.cloud-card-sub code {
+  background-color: #f1f5f9;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  color: #0f172a;
+}
+
+.cloud-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.btn-cloud-sync {
+  background-color: #008060;
+  color: #ffffff;
+  border: none;
+  padding: 0.65rem 1.15rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 128, 96, 0.25);
+}
+
+.btn-cloud-sync:hover {
+  background-color: #006e52;
+  transform: translateY(-1px);
+}
+
+.btn-cloud-config {
+  background-color: #ffffff;
+  color: #374151;
+  border: 1px solid #d1d5db;
+  padding: 0.65rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-cloud-config:hover {
+  background-color: #f9fafb;
+  border-color: #9ca3af;
+}
+
+@media (max-width: 768px) {
+  .cloud-card-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .cloud-card-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+</style>
+</head>
+<body class="admin-body">
+
+  <!-- ==========================================
+       LOGIN GATE SCREEN (STATIC PASSWORD CHECK)
+       ========================================== -->
+  <div class="admin-login-overlay" id="adminLoginOverlay">
+    <div class="login-card">
+      <div class="login-avatar">🔐</div>
+      <h1 class="login-title">Manaki Admin Portal</h1>
+      <p class="login-subtitle">Enter your static admin password to manage inventory, update prices, and edit laptop listings.</p>
+
+      <form id="adminLoginForm" class="login-form">
+        <div class="input-group">
+          <label for="adminPasswordInput" class="input-label">Admin Security Password</label>
+          <div class="password-input-wrapper">
+            <input 
+              type="password" 
+              id="adminPasswordInput" 
+              class="input-control" 
+              placeholder="Enter admin password..." 
+              autocomplete="current-password" 
+              required
+            />
+            <button type="button" class="toggle-pwd-btn" id="togglePwdBtn" title="Toggle password visibility">
+              👁️
+            </button>
+          </div>
+        </div>
+
+        <div class="login-error-msg" id="loginErrorMsg"></div>
+
+        <button type="submit" class="btn-login">Unlock Admin Dashboard</button>
+
+        <a href="index.html" class="login-footer-link">← Return to Public Storefront</a>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       AUTHENTICATED ADMIN PORTAL
+       ========================================== -->
+  <div class="admin-portal" id="adminPortal">
+    <!-- Admin Sticky Navbar -->
+    <header class="admin-navbar">
+      <div class="admin-nav-container">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <a href="index.html" class="brand-wrapper">
+            <div class="brand-icon">💻</div>
+            <span class="brand-title">Manaki Laptop Deals</span>
+          </a>
+          <span class="admin-badge">Admin Manager</span>
+        </div>
+
+        <div class="admin-actions">
+          <a href="index.html" class="btn-admin-nav" target="_blank" title="Preview Public Storefront">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+              <polyline points="15 3 21 3 21 9"/>
+              <line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+            View Website
+          </a>
+          <button class="btn-admin-nav danger" id="adminLogoutBtn" title="Sign out of Admin">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+              <polyline points="16 17 21 12 16 7"/>
+              <line x1="21" y1="12" x2="9" y2="12"/>
+            </svg>
+            Sign Out
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- KPI Statistics Grid -->
+    <section class="admin-stats-grid">
+      <div class="stat-kpi-card">
+        <span class="stat-kpi-title">Total Catalog</span>
+        <div class="stat-kpi-val" id="statTotalLaptops">0</div>
+        <span class="stat-kpi-badge">📦 Total Models in DB</span>
+      </div>
+
+      <div class="stat-kpi-card">
+        <span class="stat-kpi-title">In Stock</span>
+        <div class="stat-kpi-val" id="statAvailable" style="color: #34d399;">0</div>
+        <span class="stat-kpi-badge" style="color: #34d399;">Ready for Sale</span>
+      </div>
+
+      <div class="stat-kpi-card">
+        <span class="stat-kpi-title">Sold Out</span>
+        <div class="stat-kpi-val" id="statSold" style="color: #94a3b8;">0</div>
+        <span class="stat-kpi-badge" style="color: #94a3b8;">Archived / Sold</span>
+      </div>
+
+      <div class="stat-kpi-card">
+        <span class="stat-kpi-title">Active Inventory Value</span>
+        <div class="stat-kpi-val" id="statTotalValue" style="color: #38bdf8; font-size: 1.4rem;">GH₵0</div>
+        <span class="stat-kpi-badge" style="color: #38bdf8;">Ghana Cedis (GH₵)</span>
+      </div>
+    </section>
+
+    <!-- Google Cloud & Drive Sync Banner -->
+    <section class="admin-cloud-banner">
+      <div class="cloud-card-inner">
+        <div class="cloud-card-left">
+          <div class="cloud-icon-pill">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="cloud-card-title">
+              Google Drive & Apps Script Cloud Sync
+              <span class="cloud-status-badge" id="cloudStatusBadge">🟢 Ready</span>
+            </div>
+            <div class="cloud-card-sub" id="cloudSyncStatusText">
+              Connected to Google Drive folder <strong>laptops</strong> · Account: <code>yankeybuston@gmail.com</code>
+            </div>
+          </div>
+        </div>
+
+        <div class="cloud-card-actions">
+          <button class="btn-cloud-sync" id="btnSyncDriveImages" title="Scan Google Drive folder and match photos">
+            <span id="syncSpinIcon" style="display: none;">⏳</span>
+            <span id="syncBtnText">🔄 Scan & Sync Drive Photos</span>
+          </button>
+          <button class="btn-cloud-config" id="btnOpenCloudConfig" title="Configure Apps Script Web App URL">
+            ⚙️ Cloud Settings
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Admin Controls Toolbar -->
+    <section class="admin-toolbar-section">
+      <div class="admin-search-wrapper">
+        <div class="search-input-wrapper">
+          <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="m21 21-4.3-4.3"/>
+          </svg>
+          <input type="text" id="adminSearchInput" placeholder="Filter inventory by name, RAM, CPU..." />
+        </div>
+      </div>
+
+      <div class="admin-tools-btns">
+        <select class="sort-select" id="adminStatusFilter" aria-label="Filter by stock status">
+          <option value="all">All Statuses</option>
+          <option value="available">In Stock Only</option>
+          <option value="sold">Sold Out Only</option>
+        </select>
+
+        <button class="btn-admin-nav" id="btnWhatsAppConfig" title="Configure WhatsApp order number">
+          💬 WhatsApp: <span id="currentWhatsAppDisplay">0543862551</span>
+        </button>
+
+        <button class="btn-admin-nav" id="btnExportData" title="Export catalog as JSON backup">
+          💾 Export JSON
+        </button>
+
+        <button class="btn-admin-nav" id="btnImportData" title="Import catalog from JSON backup">
+          📥 Import JSON
+        </button>
+        <input type="file" id="importFileInput" accept=".json" style="display: none;" />
+
+        <button class="btn-admin-nav danger" id="btnResetData" title="Restore original 41 laptops shipment data">
+          🔄 Reset Defaults
+        </button>
+
+        <button class="btn-add-laptop" id="btnOpenAddModal">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="12" y1="5" x2="12" y2="19"/>
+            <line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+          Add Laptop
+        </button>
+      </div>
+    </section>
+
+    <!-- Inventory Data Table -->
+    <section class="admin-table-section">
+      <div class="admin-table-card">
+        <div class="table-responsive">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>No.</th>
+                <th>Photo</th>
+                <th>Model & Hardware Specs</th>
+                <th>Price (GH₵)</th>
+                <th>Stock Status</th>
+                <th>Photos</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="adminTableBody">
+              <!-- Dynamically populated via js/admin.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ==========================================
+       ADD / EDIT LAPTOP MODAL
+       ========================================== -->
+  <div class="modal-overlay" id="laptopModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modalTitle">Add New Laptop Listing</h2>
+        <button class="modal-close-btn" id="modalCloseBtn">&times;</button>
+      </div>
+
+      <form id="laptopForm" class="modal-body">
+        <input type="hidden" id="formLaptopId" />
+
+        <!-- Title & Brand -->
+        <div class="form-grid-2">
+          <div class="input-group">
+            <label class="input-label" for="inputTitle">Laptop Title / Model *</label>
+            <input type="text" id="inputTitle" class="input-control" required placeholder="e.g. Dell XPS 15 7590" />
+          </div>
+
+          <div class="input-group">
+            <label class="input-label" for="inputBrand">Brand *</label>
+            <select id="inputBrand" class="input-control">
+              <option value="Dell">Dell</option>
+              <option value="HP">HP</option>
+              <option value="Lenovo">Lenovo</option>
+              <option value="Apple">Apple MacBook</option>
+              <option value="Samsung">Samsung</option>
+              <option value="Acer">Acer</option>
+              <option value="Microsoft">Microsoft Surface</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Category & Condition -->
+        <div class="form-grid-2">
+          <div class="input-group">
+            <label class="input-label" for="inputCategory">Category</label>
+            <select id="inputCategory" class="input-control">
+              <option value="Business">Business / Executive</option>
+              <option value="2-in-1 Touch">2-in-1 Touch / Convertible</option>
+              <option value="Ultrabook">Ultrabook / Premium</option>
+              <option value="Workstation">Workstation / Heavy Duty</option>
+              <option value="Gaming">Gaming Laptop</option>
+              <option value="Performance">High Performance</option>
+              <option value="Everyday">Everyday Computing</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label class="input-label" for="inputCondition">Physical Condition</label>
+            <input type="text" id="inputCondition" class="input-control" value="Grade A+ Clean Direct Import" />
+          </div>
+        </div>
+
+        <!-- Processor, Gen, Speed -->
+        <div class="form-grid-3">
+          <div class="input-group">
+            <label class="input-label" for="inputProcessor">Processor</label>
+            <input type="text" id="inputProcessor" class="input-control" placeholder="e.g. Intel Core i7" />
+          </div>
+
+          <div class="input-group">
+            <label class="input-label" for="inputGeneration">Generation</label>
+            <input type="text" id="inputGeneration" class="input-control" placeholder="e.g. 11th Gen" />
+          </div>
+
+          <div class="input-group">
+            <label class="input-label" for="inputSpeed">CPU Speed</label>
+            <input type="text" id="inputSpeed" class="input-control" placeholder="e.g. 2.80 GHz" />
+          </div>
+        </div>
+
+        <!-- RAM, Storage, Screen -->
+        <div class="form-grid-3">
+          <div class="input-group">
+            <label class="input-label" for="inputRam">RAM Memory</label>
+            <input type="text" id="inputRam" class="input-control" placeholder="e.g. 16GB" />
+          </div>
+
+          <div class="input-group">
+            <label class="input-label" for="inputStorage">Storage</label>
+            <input type="text" id="inputStorage" class="input-control" placeholder="e.g. 512GB SSD" />
+          </div>
+
+          <div class="input-group">
+            <label class="input-label" for="inputScreenSize">Screen Size</label>
+            <input type="text" id="inputScreenSize" class="input-control" placeholder='e.g. 14" or 15.6"' />
+          </div>
+        </div>
+
+        <!-- Display Specs & Graphics -->
+        <div class="form-grid-2">
+          <div class="input-group">
+            <label class="input-label" for="inputDisplay">Display Description</label>
+            <input type="text" id="inputDisplay" class="input-control" placeholder='e.g. 15.6" FHD IPS Display' />
+          </div>
+
+          <div class="input-group">
+            <label class="input-label" for="inputGraphics">Graphics / GPU</label>
+            <input type="text" id="inputGraphics" class="input-control" placeholder="e.g. 4GB Dedicated Graphics" />
+          </div>
+        </div>
+
+        <!-- Pricing & Stock Status -->
+        <div class="form-grid-3">
+          <div class="input-group">
+            <label class="input-label" for="inputPrice">Selling Price (GH₵) *</label>
+            <input type="number" id="inputPrice" class="input-control" required placeholder="e.g. 4800" />
+          </div>
+
+          <div class="input-group">
+            <label class="input-label" for="inputOriginalPrice">Original / Compare Price (GH₵)</label>
+            <input type="number" id="inputOriginalPrice" class="input-control" placeholder="e.g. 5300" />
+          </div>
+
+          <div class="input-group">
+            <label class="input-label" for="inputStatus">Stock Status</label>
+            <select id="inputStatus" class="input-control">
+              <option value="Available">Available</option>
+              <option value="Hot Deal">🔥 Hot Deal</option>
+              <option value="Almost New">✨ Almost New</option>
+              <option value="Sold Out">Sold Out</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Battery Health -->
+        <div class="input-group">
+          <label class="input-label" for="inputBattery">Battery Condition</label>
+          <input type="text" id="inputBattery" class="input-control" placeholder="e.g. Tested Strong Battery (8+ Hours)" />
+        </div>
+
+        <!-- Hardware Features Checkboxes -->
+        <div class="input-group">
+          <label class="input-label">Key Features & Flags</label>
+          <div class="features-checkbox-grid">
+            <label class="feature-checkbox-label">
+              <input type="checkbox" id="checkTouch" />
+              <span>Touchscreen</span>
+            </label>
+            <label class="feature-checkbox-label">
+              <input type="checkbox" id="checkConvertible" />
+              <span>360° Convertible</span>
+            </label>
+            <label class="feature-checkbox-label">
+              <input type="checkbox" id="checkBacklit" />
+              <span>Backlit Keyboard</span>
+            </label>
+            <label class="feature-checkbox-label">
+              <input type="checkbox" id="checkFingerprint" />
+              <span>Fingerprint Reader</span>
+            </label>
+            <label class="feature-checkbox-label">
+              <input type="checkbox" id="checkDedicatedGpu" />
+              <span>Dedicated GPU</span>
+            </label>
+            <label class="feature-checkbox-label">
+              <input type="checkbox" id="checkFeatured" />
+              <span>Featured on Homepage</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Description -->
+        <div class="input-group">
+          <label class="input-label" for="inputDescription">Marketing Description</label>
+          <textarea id="inputDescription" class="input-control" rows="3" placeholder="Engaging summary of condition and ideal use cases..."></textarea>
+        </div>
+
+        <!-- Photo Management -->
+        <div class="input-group">
+          <label class="input-label">Laptop Photos</label>
+          <div class="images-manager-list" id="modalImagePreviewList">
+            <!-- Image previews -->
+          </div>
+
+          <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
+            <input type="text" id="addImageUrlInput" class="input-control" placeholder="Add Image Path (e.g. images/L 1 A.webp or https://...)" />
+            <button type="button" class="btn-card-view" id="btnAddImageUrl" style="flex-shrink: 0;">Add URL</button>
+          </div>
+
+          <div style="margin-top: 0.5rem;">
+            <label class="btn-card-view" style="display: inline-flex; align-items: center; gap: 0.4rem; cursor: pointer;">
+              📁 Upload Pictures from Computer
+              <input type="file" id="imageUploadInput" accept="image/*" multiple style="display: none;" />
+            </label>
+          </div>
+        </div>
+
+        <!-- Footer Actions -->
+        <div class="modal-footer">
+          <button type="button" class="btn-card-view" id="modalCancelBtn">Cancel</button>
+          <button type="submit" class="btn-primary">Save Laptop Listing</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Cloud Settings Modal -->
+  <div class="modal-backdrop" id="cloudConfigModal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); align-items: center; justify-content: center; z-index: 1000; padding: 1rem;">
+    <div class="modal-card" style="width: 100%; max-width: 520px; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+      <div class="modal-header" style="padding: 1.25rem 1.5rem; border-bottom: 1px solid #e5e7eb; display: flex; justify-content: space-between; align-items: center;">
+        <h3 class="modal-title" style="font-size: 1.1rem; font-weight: 700; color: #121212; margin: 0;">⚙️ Google Apps Script & Drive Settings</h3>
+        <button class="modal-close-btn" id="closeCloudModalBtn" style="background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #6b7280;">&times;</button>
+      </div>
+      <div class="modal-body" style="padding: 1.5rem; display: flex; flex-direction: column; gap: 1.1rem;">
+        <p style="font-size: 0.86rem; color: #4b5563; line-height: 1.5; margin: 0;">
+          Connect this site to your Google Apps Script Web App. It automatically reads laptop photos directly from the <strong>laptops</strong> folder in your Google Drive (<code>yankeybuston@gmail.com</code>).
+        </p>
+
+        <div>
+          <label style="font-size: 0.82rem; font-weight: 700; color: #121212; display: block; margin-bottom: 0.4rem;">
+            Google Apps Script Web App Exec URL:
+          </label>
+          <input 
+            type="url" 
+            id="gasApiUrlInput" 
+            placeholder="https://script.google.com/macros/s/AKfycb.../exec" 
+            style="width: 100%; padding: 0.65rem 0.8rem; border: 1px solid #d1d5db; border-radius: 8px; font-size: 0.85rem; box-sizing: border-box;"
+          />
+          <small style="color: #6b7280; font-size: 0.76rem; display: block; margin-top: 0.35rem;">
+            From Google Apps Script: <em>Deploy → New deployment → Web app (Who has access: Anyone)</em>.
+          </small>
+        </div>
+
+        <div style="display: flex; gap: 0.75rem; align-items: center; margin-top: 0.25rem;">
+          <button type="button" class="btn-card-view" id="btnTestCloudConnection" style="padding: 0.5rem 0.9rem; font-size: 0.85rem;">
+            🔌 Test Connection
+          </button>
+          <span id="cloudTestStatus" style="font-size: 0.82rem; font-weight: 600;"></span>
+        </div>
+      </div>
+      <div class="modal-footer" style="padding: 1rem 1.5rem; border-top: 1px solid #e5e7eb; display: flex; justify-content: flex-end; gap: 0.75rem; background: #f9fafb;">
+        <button type="button" class="btn-card-view" id="cancelCloudModalBtn">Cancel</button>
+        <button type="button" class="btn-primary" id="saveCloudSettingsBtn">Save Settings</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Server Data Injection -->
+  <script>
+    window.SERVER_LAPTOPS = <?!= JSON.stringify(laptops) ?>;
+    window.GAS_EXEC_URL = "<?= (function() { try { return ScriptApp.getService().getUrl(); } catch(e) { return ''; } })() ?>";
+  </script>
+  <script>
+/**
+ * Akiola Laptops Catalog Dataset
+ * Automatically initialized and saved to localStorage for client-side persistence & CRUD
+ */
+window.DEFAULT_LAPTOPS = [
+  {
+    "id": 1,
+    "number": 1,
+    "title": "Dell Inspiron 7386 2-in-1",
+    "brand": "Dell",
+    "category": "2-in-1 Touch",
+    "processor": "Intel Core i5",
+    "generation": "8th Gen",
+    "speed": "2.8 GHz",
+    "ram": "8GB",
+    "ramGb": 8,
+    "storage": "8GB SSD",
+    "storageGb": 8,
+    "storageType": "SSD",
+    "display": "13\" FHD Display (Touch)",
+    "screenSize": "13\"",
+    "graphics": "Integrated Intel UHD Graphics",
+    "hasDedicatedGpu": false,
+    "isTouchscreen": true,
+    "isConvertible": true,
+    "hasBacklitKeyboard": true,
+    "hasFingerprint": true,
+    "features": [
+      "Touchscreen",
+      "360° Convertible",
+      "Backlit Keyboard",
+      "Fingerprint Scanner",
+      "Alexa Built-in"
+    ],
+    "price": 4500,
+    "priceFormatted": "GH₵4,500",
+    "originalPrice": 4950,
+    "originalPriceFormatted": "GH₵4,950",
+    "status": "Available",
+    "condition": "Grade A+ Clean Direct Import",
+    "battery": "Tested Strong Battery (Health 85%+)",
+    "description": "Dell Inspiron 7386 2-in-1 powered by Intel Core i5 8th Gen with 8GB RAM and ultra-fast 8GB SSD. Features a 360-degree convertible hinge for versatile laptop and tablet productivity on the go. Comes with a backlit keyboard for comfortable typing in any lighting condition. Crisp, responsive touchscreen display.",
+    "images": [
+      "images/L 1 A.webp",
+      "images/L 1 B.webp",
+      "images/L 1 C.webp",
+      "images/L 1 D.webp",
+      "images/L 1 E.webp",
+      "images/L 1 F.webp",
+      "images/L 1 G.webp"
+    ],
+    "featured": true,
+    "views": 137
+  },
+  {
+    "id": 2,
+    "number": 2,
+    "title": "HP EliteBook 830 G5",
+    "brand": "HP",
+    "category": "2-in-1 Touch",
+    "processor": "Intel Core i7",
+    "generation": "8th Gen",
+    "speed": "2.11 GHz",
+    "ram": "16GB",
+    "ramGb": 16,
+    "storage": "16GB SSD",
+    "storageGb": 16,
+    "storageType": "SSD",
+    "display": "14\" FHD Display (Touch)",
+    "screenSize": "14\"",
+    "graphics": "Integrated Intel UHD Graphics",
+    "hasDedicatedGpu": false,
+    "isTouchscreen": true,
+    "isConvertible": false,
+    "hasBacklitKeyboard": true,
+    "hasFingerprint": true,
+    "features": [
+      "Touchscreen",
+      "Backlit Keyboard",
+      "Fingerprint Scanner"
+    ],
+    "price": 4950,
+    "priceFormatted": "GH₵4,950",
+    "originalPrice": 5450,
+    "originalPriceFormatted": "GH₵5,450",
+    "status": "Available",
+    "condition": "Grade A+ Clean Direct Import",
+    "battery": "Tested Strong Battery (Health 85%+)",
+    "description": "HP EliteBook 830 G5 powered by Intel Core i7 8th Gen with 16GB RAM and ultra-fast 16GB SSD. Engineered for speed, durability, and seamless everyday multitasking for professionals and students. Comes with a backlit keyboard for comfortable typing in any lighting condition. Crisp, responsive touchscreen display.",
+    "images": [
+      "images/L 2 A.webp",
+      "images/L 2 B.webp",
+      "images/L 2 C.webp",
+      "images/L 2 D.webp",
+      "images/L 2 E.webp",
+      "images/L 2 F.webp",
+      "images/L 2 G.webp"
+    ],
+    "featured": true,
+    "views": 154
+  },
+  {
+    "id": 3,
+    "number": 3,
+    "title": "HP Envy x360 Convertible",
+    "brand": "HP",
+    "category": "2-in-1 Touch",
+    "processor": "Intel Core i5",
+    "generation": "8th Gen",
+    "speed": "1.8 GHz",
+    "ram": "8GB",
+    "ramGb": 8,
+    "storage": "8GB SSD",
+    "storageGb": 8,
+    "storageType": "SSD",
+    "display": "15.6\" FHD Display (Touch)",
+    "screenSize": "15.6\"",
+    "graphics": "Integrated Intel UHD Graphics",
+    "hasDedicatedGpu": false,
+    "isTouchscreen": true,
+    "isConvertible": true,
+    "hasBacklitKeyboard": false,
+    "hasFingerprint": true,
+    "features": [
+      "Touchscreen",
+      "360° Convertible",
+      "Fingerprint Scanner"
+    ],
+    "price": 4500,
+    "priceFormatted": "GH₵4,500",
+    "originalPrice": 4950,
+    "originalPriceFormatted": "GH₵4,950",
+    "status": "Available",
+    "condition": "Grade A+ Clean Direct Import",
+    "battery": "Tested Strong Battery (Health 85%+)",
+    "description": "HP Envy x360 Convertible powered by Intel Core i5 8th Gen with 8GB RAM and ultra-fast 8GB SSD. Features a 360-degree convertible hinge for versatile laptop and tablet productivity on the go. Crisp, responsive touchscreen display.",
+    "images": [
+      "images/L 3 A.webp",
+      "images/L 3 B.webp",
+      "images/L 3 C.webp",
+      "images/L 3 D.webp",
+      "images/L 3 E.webp"
+    ],
+    "featured": false,
+    "views": 171
+  },
+  {
+    "id": 4,
+    "number": 4,
+    "title": "Dell XPS 15 7590",
+    "brand": "Dell",
+    "category": "2-in-1 Touch",
+    "processor": "Intel Core i7",
+    "generation": "9th Gen",
+    "speed": "2.60 GHz",
+    "ram": "32GB",
+    "ramGb": 32,
+    "storage": "32GB SSD",
+    "storageGb": 32,
+    "storageType": "SSD",
+    "display": "15.6\" FHD Display (Touch)",
+    "screenSize": "15.6\"",
+    "graphics": "4GB Dedicated Graphics",
+    "hasDedicatedGpu": true,
+    "isTouchscreen": true,
+    "isConvertible": false,
+    "hasBacklitKeyboard": true,
+    "hasFingerprint": true,
+    "features": [
+      "Touchscreen",
+      "Backlit Keyboard",
+      "Fingerprint Scanner",
+      "4GB Dedicated Graphics"
+    ],
+    "price": 6950,
+    "priceFormatted": "GH₵6,950",
+    "originalPrice": 7650,
+    "originalPriceFormatted": "GH₵7,650",
+    "status": "Hot Deal",
+    "condition": "Grade A+ Clean Direct Import",
+    "battery": "Tested Strong Battery (Health 85%+)",
+    "description": "Dell XPS 15 7590 powered by Intel Core i7 9th Gen with 32GB RAM and ultra-fast 32GB SSD. Equipped with 4GB Dedicated Graphics making it outstanding for design, video editing, CAD, and gaming. Comes with a backlit keyboard for comfortable typing in any lighting condition. Crisp, responsive touchscreen display.",
+    "images": [
+      "images/L 4 A.webp",
+      "images/L 4 B.webp",
+      "images/L 4 C.webp",
+      "images/L 4 D(1).webp",
+      "images/L 4 D.webp",
+      "images/L 4 E.webp",
+      "images/L 4 F.webp",
+      "images/L 4 G.webp"
+    ],
+    "featured": true,
+    "views": 188
+  },
+  {
+    "id": 5,
+    "number": 5,
+    "title": "Dell Precision 5560 Workstation",
+    "brand": "Dell",
+    "category": "Workstation",
+    "processor": "Intel Core i7",
+    "generation": "11th Gen",
+    "speed": "2.50 GHz",
+    "ram": "32GB",
+    "ramGb": 32,
+    "storage": "32GB SSD",
+    "storageGb": 32,
+    "storageType": "SSD",
+    "display": "15.6\" FHD Display (Touch)",
+    "screenSize": "15.6\"",
+    "graphics": "4GB Dedicated Graphics",
+    "hasDedicatedGpu": true,
+    "isTouchscreen": true,
+    "isConvertible": false,
+    "hasBacklitKeyboard": true,
+    "hasFingerprint": true,
+    "features": [
+      "Touchscreen",
+      "Backlit Keyboard",
+      "Fingerprint Scanner",
+      "4GB Dedicated Graphics"
+    ],
+    "price": 6000,
+    "priceFormatted": "GH₵6,000",
+    "originalPrice": 6600,
+    "originalPriceFormatted": "GH₵6,600",
+    "status": "Sold Out",
+    "condition": "Grade A+ Clean Direct Import",
+    "battery": "Tested Strong Battery (Health 85%+)",
+    "description": "Dell Precision 5560 Workstation powered by Intel Core i7 11th Gen with 32GB RAM and ultra-fast 32GB SSD. Equipped with 4GB Dedicated Graphics making it outstanding for design, video editing, CAD, and gaming. Comes with a backlit keyboard for comfortable typing in any lighting condition. Crisp, responsive touchscreen display.",
+    "images": [
+      "images/L 5 for Paul(1).webp",
+      "images/L 5 for Paul(2).webp",
+      "images/L 5 for Paul(3).webp",
+      "images/L 5 for Paul(4).webp",
+      "images/L 5 for Paul(5).webp",
+      "images/L 5 for Paul(6).webp",
+      "images/L 5 for Paul(7).webp",
+      "images/L 5 for Paul.webp"
+    ],
+    "featured": false,
+    "views": 205
+  },
+  {
+    "id": 6,
+    "number": 6,
+    "title": "Dell Latitude 7400 2-in-1",
+    "brand": "Dell",
+    "category": "2-in-1 Touch",
+    "processor": "Intel Core i7",
+    "generation": "8th Gen",
+    "speed": "2.10 GHz",
+    "ram": "16GB",
+    "ramGb": 16,
+    "storage": "16GB SSD",
+    "storageGb": 16,
+    "storageType": "SSD",
+    "display": "13\" FHD Display (Touch)",
+    "screenSize": "13\"",
+    "graphics": "Integrated Intel UHD Graphics",
+    "hasDedicatedGpu": false,
+    "isTouchscreen": true,
+    "isConvertible": true,
+    "hasBacklitKeyboard": true,
+    "hasFingerprint": true,
+    "features": [
+      "Touchscreen",
+      "360° Convertible",
+      "Backlit Keyboard",
+      "Fingerprint Scanner"
+    ],
+    "price": 4350,
+    "priceFormatted": "GH₵4,350",
+    "originalPrice": 4800,
+    "originalPriceFormatted": "GH₵4,800",
+    "status": "Available",
+    "condition": "Grade A+ Clean Direct Import",
+    "battery": "Tested Strong Battery (Health 85%+)",
+    "description": "Dell Latitude 7400 2-in-1 powered by Intel Core i7 8th Gen with 16GB RAM and ultra-fast 16GB SSD. Features a 360-degree convertible hinge for versatile laptop and tablet productivity on the go. Comes with a backlit keyboard for comfortable typing in any lighting condition. Crisp, responsive touchscreen display.",
+    "images": [
+      "images/L 6 A.webp",
+      "images/L 6 B.webp",
+      "images/L 6 C.webp",
+      "images/L 6 D.webp",
+      "images/L 6 E.webp",
+      "images/L 6 F.webp"
+    ],
+    "featured": false,
+    "views": 222
+  },
+  {
+    "id": 7,
+    "number": 7,
+    "title": "Dell Latitude 7440 2-in-1",
+    "brand": "Dell",
+    "category": "2-in-1 Touch",
+    "processor": "Intel Core i7",
+    "generation": "13th Gen",
+    "speed": "1.80 GHz",
+    "ram": "16GB",
+    "ramGb": 16,
+    "storage": "16GB SSD",
+    "storageGb": 16,
+    "storageType": "SSD",
+    "display": "14\" FHD Display",
+    "screenSize": "14\"",
+    "graphics": "Integrated Intel UHD Graphics",
+    "hasDedicatedGpu": false,
+    "isTouchscreen": false,
+    "isConvertible": true,
+    "hasBacklitKeyboard": true,
+    "hasFingerprint": true,
+    "features": [
+      "360° Convertible",
+      "Backlit Keyboard",
+      "Fingerprint Scanner"
+    ],
+    "price": 5950,
+    "priceFormatted": "GH₵5,950",
+    "originalPrice": 6550,
+    "originalPriceFormatted": "GH₵6,550",
+    "status": "Available",
+    "condition": "Grade A+ Clean Direct Import",
+    "battery": "Tested Strong Battery (Health 85%+)",
+    "description": "Dell Latitude 7440 2-in-1 powered by Intel Core i7 13th Gen with 16GB RAM and ultra-fast 16GB SSD. Features a 360-degree convertible hinge for versatile laptop and tablet productivity on the go. Comes with a backlit keyboard for comfortable typing in any lighting condition.",
+    "images": [
+      "images/L 7 A.webp",
+      "images/L 7 B.webp",
+      "images/L 7 C.webp",
+      "images/L 7 D.webp"
+    ],
+    "featured": true,
+    "views": 239
+  },
+  {
+    "id": 8,
+    "number": 8,
+    "title": "HP EliteBook 830 G5",
+    "brand": "HP",
+    "category": "2-in-1 Touch",
+    "processor": "Intel Core i7",
+    "generation": "8th Gen",
+    "speed": "2.11 GHz",
+    "ram": "16GB",
+    "ramGb": 16,
+    "storage": "16GB SSD",
+    "storageGb": 16,
+    "storageType": "SSD",
+    "display": "14\" FHD Display (Touch)",
+    "screenSize": "14\"",
+    "graphics": "Integrated Intel UHD Graphics",
+    "hasDedicatedGpu": false,
+    "isTouchscreen": true,
+    "isConvertible": false,
+    "hasBacklitKeyboard": true,
+    "hasFingerprint": true,
+    "features": [
+      "Touchscreen",
+      "Backlit Keyboard",
+      "Fingerprint Scanner"
+    ],
+    "price": 4800,
+    "priceFormatted": "GH₵4,800",
+    "originalPrice": 5300,
+    "originalPriceFormatted": "GH₵5,300",
+    "status": "Available",
+    "condition": "Grade A+ Clean Direct Import",
+    "battery": "Tested Strong Battery (Health 85%+)",
+    "description": "HP EliteBook 830 G5 powered by Intel Core i7 8th Gen with 16GB RAM and ultra-fast 16GB SSD. Engineered for speed, durability, and seamless everyday multitasking for professionals and students. Comes with a backlit keyboard for comfortable typing in any lighting condition. Crisp, responsive touchscreen display.",
+    "images": [
+      "images/L 8 A.webp",
+      "images/L 8 B.webp",
+      "images/L 8 C.webp",
+      "images/L 8 D.webp",
+      "images/L 8 E.webp",
+      "images/L 8 F.webp",
+      "images/L 8 G.webp"
+    ],
+    "featured": false,
+    "views": 256
+  },
+  {
+    "id": 9,
+    "number": 9,
+    "title": "Dell Latitude 5420",
+    "brand": "Dell",
+    "category": "Performance",
+    "processor": "Intel Core i7",
+    "generation": "11th Gen",
+    "speed": "1.8 GHz",
+    "ram": "32GB",
+    "ramGb": 32,
+    "storage": "32GB SSD",
+    "storageGb": 32,
+    "storageType": "SSD",
+    "display": "14\" FHD Display",
+    "screenSize": "14\"",
+    "graphics": "Integrated Intel UHD Graphics",
+    "hasDedicatedGpu": false,
+    "isTouchscreen": false,
+    "isConvertible": false,
+    "hasBacklitKeyboard": true,
+    "hasFingerprint": false,
+    "features": [
+      "Backlit Keyboard"
+    ],
+    "price": 6200,
+    "priceFormatted": "GH₵6,200",
+    "originalPrice": 6850,
+    "originalPriceFormatted": "GH₵6,850",
+    "status": "Hot Deal",
+    "condition": "Grade A+ Clean Direct Import",
+    "battery": "Tested Strong Battery (Health 85%+)",
+    "description": "Dell Latitude 5420 powered by Intel Core i7 11th Gen with 32GB RAM and ultra-fast 32GB SSD. Engineered for speed, durability, and seamless everyday multitasking for professionals and students. Comes with a backlit keyboard for comfortable typing in any lighting condition.",
+    "images": [
+      "images/L 9 A.webp",
+      "images/L 9 B.webp",
+      "images/L 9 C.webp",
+      "images/L 9 D.webp",
+      "images/L 9 E.webp"
+    ],
+    "featured": true,
+    "views": 273
+  },
+  {
+    "id": 10,
+    "number": 10,
+    "title": "Microsoft Surface Pro 4",
+    "brand": "Microsoft",
+    "category": "2-in-1 Touch",
+    "processor": "Intel Core i5",
+    "generation": "6th Gen",
+    "speed": "2.50 GHz",
+    "ram": "8GB",
+    "ramGb": 8,
+    "storage": "8GB SSD",
+    "storageGb": 8,
+    "storageType": "SSD",
+    "display": "12\" FHD Display (Touch)",
+    "screenSize": "12\"",
+    "graphics": "Integrated Intel UHD Graphics",
+    "hasDedicatedGpu": false,
+    "isTouchscreen": true,
+    "isConvertible": false,
+    "hasBacklitKeyboard": true,
+    "hasFingerprint": false,
+    "features": [
+      "Touchscreen",
+      "Backlit Keyboard"
+    ],
+    "price": 3350,
+    "priceFormatted": "GH₵3,350",
+    "originalPrice": 3700,
+    "originalPriceFormatted": "GH₵3,700",
+    "status": "Available",
+    "condition": "Grade A+ Clean Direct Import",
+    "battery": "Tested Strong Battery (Health 85%+)",
+    "description": "Microsoft Surface Pro 4 powered by Intel Core i5 6th Gen with 8GB RAM and ultra-fast 8GB SSD. Engineered for speed, durability, and seamless everyday multitasking for professionals and students. Comes with a backlit keyboard for comfortable typing in any lighting condition. Crisp, responsive touchscreen display.",
+    "images": [
+      "images/L 10 A.webp",
+      "images/L 10 B.webp",
+      "images/L 10 C.webp",
+      "images/L 10 D.webp"
+    ],
+    "featured": false,
+    "views": 290
+  },
+  {
+    "id": 11,
+    "number": 11,
+    "title": "HP EliteBook 830 G5",
+    "brand": "HP",
+    "category": "2-in-1 Touch",
+    "processor": "Intel Core i7",
+    "generation": "8th Gen",
+    "speed": "2.11 GHz",
+    "ram": "16GB",
+    "ramGb": 16,
+    "storage": "16GB SSD",
+    "storageGb": 16,
+    "storageType": "SSD",
+    "display": "14\" FHD Display (Touch)",
+    "screenSize": "14\"",
+    "graphics": "Integrated Intel UHD Graphics",
+    "hasDedicatedGpu": false,
+    "isTouchscreen": true,
+    "isConvertible": false,
+    "hasBacklitKeyboard": true,
+    "hasFingerprint": true,
+    "features": [
+      "Touchscreen",
+      "Backlit Keyboard",
+      "Fingerprint Scanner"
+    ],
+    "price": 4800,
+    "priceFormatted": "GH₵4,800",
+    "originalPrice": 5300,
+    "originalPriceFormatted": "GH₵5,300",
+    "status": "Available",
+    "condition": "Grade A+ Clean Direct Import",
+    "battery": "Tested Strong Battery (Health 85%+)",
+    "description": "HP EliteBook 830 G5 powered by Intel Core i7 8th Gen with 16GB RAM and ultra-fast 16GB SSD. Engineered for speed, durability, and seamless everyday multitasking for professionals and students. Comes with a backlit keyboard for comfortable typing in any lighting condition. Crisp, responsive touchscreen display.",
+    "images": [
+      "images/L 11 B.webp",
+      "images/L 11 C.webp",
+      "images/L 11 D.webp",
+      "images/L 11 E.webp",
+      "images/L 11 F.webp",
+      "images/L 11 G.webp",
+      "images/L 11 H.webp"
+    ],
+    "featured": false,
+    "views": 307
+  },
+  {
+    "id": 12,
+    "number": 12,
+    "title": "Dell Latitude 7200 2-in-1",
+    "brand": "Dell",
+    "category": "2-in-1 Touch",
+    "processor": "Intel Core i5",
+    "generation": "10th Gen",
+    "speed": "2.21 GHz",
+    "ram": "8GB",
+    "ramGb": 8,
+    "storage": "8GB SSD",
+    "storageGb": 8,
+    "storageType": "SSD",
+    "display": "12\" FHD Display (Touch)",
+    "screenSize": "12\"",
+    "graphics": "Integrated Intel UHD Graphics",
+    "hasDedicatedGpu": false,
+    "isTouchscreen": true,
+    "isConvertible": true,
+    "hasBacklitKeyboard": true,
+    "hasFingerprint": false,
+    "features": [
+      "Touchscreen",
+      "360° Convertible",
+      "Backlit Keyboard"
+    ],
+    "price": 3700,
+    "priceFormatted": "GH₵3,700",
+    "originalPrice": 4100,
+    "originalPriceFormatted": "GH₵4,100",
+    "status": "Available",
+    "condition": "Grade A+ Clean Direct Import",
+    "battery": "Tested Strong Battery (Health 85%+)",
+    "description": "Dell Latitude 7200 2-in-1 powered by Intel Core i5 10th Gen with 8GB RAM and ultra-fast 8GB SSD. Features a 360-degree convertible hinge for versatile laptop and tablet productivity on the go. Comes with a backlit keyboard for comfortable typing in any lighting condition. Crisp, responsive touchscreen display.",
+    "images": [
+      "images/L 12 A.webp",
+      "images/L 12 B.webp",
+      "images/L 12 C.webp",
+      "images/L 12 D.webp",
+      "images/L 12 F.webp",
+      "images/L 12 G.webp"
+    ],
+    "featured": false,
+    "views": 324
+  },
+  {
+    "id": 13,
+    "number": 13,
+    "title": "Lenovo ThinkPad",
+    "brand": "Lenovo",
+    "category": "Performance",
+    "processor": "Intel Core i7",
+    "generation": "8th Gen",
+    "speed": "1.99 GHz",
+    "ram": "16GB",
+    "ramGb": 16,
+    "storage": "16GB SSD",
+    "storageGb": 16,
+    "storageType": "SSD",
+    "display": "14\" FHD Display",
+    "screenSize": "14\"",
+    "graphics": "Integrated Intel UHD Graphics",
+    "hasDedicatedGpu": false,
+    "isTouchscreen": false,
+    "isConvertible": false,
+    "hasBacklitKeyboard": true,
+    "hasFingerprint": false,
+    "features": [
+      "Backlit Keyboard"
+    ],
+    "price": 3600,
+    "priceFormatted": "GH₵3,600",
+    "originalPrice": 4000,
+    "originalPriceFormatted": "GH₵4,000",
+    "status": "Available",
+    "condition": "Grade A+ Clean Direct Import",
+    "battery": "Tested Strong Battery (Health 85%+)",
+    "description": "Lenovo ThinkPad powered by Intel Core i7 8th Gen with 16GB RAM and ultra-fast 16GB SSD. Engineered for speed, durability, and seamless everyday multitasking for professionals and students. Comes with a backlit keyboard for comfortable typing in any lighting condition.",
+    "images": [
+      "images/L 13 A.webp",
+      "images/L 13 B.webp",
+      "images/L 13 C.webp",
+      "images/L 13 D.webp",
+      "images/L 13 F.webp",
+      "images/L 13 G.webp"
+    ],
+    "featured": false,
+    "views": 341
+  },
+  {
+    "id": 14,
+    "number": 14,
+    "title": "Dell Latitude 3510",
+    "brand": "Dell",
+    "category": "Performance",
+    "processor": "Intel Core i5",
+    "generation": "10th Gen",
+    "speed": "2.11 GHz",
+    "ram": "16GB",
+    "ramGb": 16,
+    "storage": "16GB SSD",
+    "storageGb": 16,
+    "storageType": "SSD",
+    "display": "15.6\" FHD Display",
+    "screenSize": "15.6\"",
+    "graphics": "Integrated Intel UHD Graphics",
+    "hasDedicatedGpu": false,
+    "isTouchscreen": false,
+    "isConvertible": false,
+    "hasBacklitKeyboard": true,
+    "hasFingerprint": false,
+    "features": [
+      "Backlit Keyboard"
+    ],
+    "price": 3650,
+    "priceFormatted": "GH₵3,650",
+    "originalPrice": 4050,
+    "originalPriceFormatted": "GH₵4,050",
+    "status": "Available",
+    "condition": "Grade A+ Clean Direct Import",
+    "battery": "Tested Strong Battery (Health 85%+)",
+    "description": "Dell Latitude 3510 powered by Intel Core i5 10th Gen with 16GB RAM and ultra-fast 16GB SSD. Engineered for speed, durability, and seamless everyday multitasking for professionals and students. Comes with a backlit keyboard for comfortable typing in any lighting condition.",
+    "images": [
+      "images/L 14 A.webp",
+      "images/L 14 B.webp",
+      "images/L 14 C(1).webp",
+      "images/L 14 C.webp",
+      "images/L 14 D.webp",
+      "images/L 14 E.webp",
+      "images/L 14 F.webp"
+    ],
+    "featured": false,
+    "views": 358
+  },
+  {
+    "id": 15,
+    "number": 15,
+    "title": "HP Laptop",
+    "brand": "HP",
+    "category": "Performance",
+    "processor": "Intel Core i7",
+    "generation": "10th Gen",
+    "speed": "1.50 GHz",
+    "ram": "16GB",
+    "ramGb": 16,
+    "storage": "16GB SSD",
+    "storageGb": 16,
+    "storageType": "SSD",
+    "display": "15.6\" FHD Display",
+    "screenSize": "15.6\"",
+    "graphics": "Integrated Intel UHD Graphics",
+    "hasDedicatedGpu": false,
+    "isTouchscreen": false,
+    "isConvertible": false,
+    "hasBacklitKeyboard": false,
+    "hasFingerprint": false,
+    "features": [],
+    "price": 4400,
+    "priceFormatted": "GH₵4,400",
+    "originalPrice": 4850,
+    "originalPriceFormatted": "GH₵4,850",
+    "status": "Available",
+    "condition": "Grade A+ Clean Direct Import",
+    "battery": "Tested Strong Battery (Health 85%+)",
+    "description": "HP Laptop powered by Intel Core i7 10th Gen with 16GB RAM and ultra-fast 16GB SSD. Engineered for speed, durability, and seamless everyday multitasking for professionals and students.",
+    "images": [
+      "images/L 15 A.webp",
+      "images/L 15 B.webp",
+      "images/L 15 C.webp",
+      "images/L 15 D.webp",
+      "images/L 15 E.webp",
+      "images/L 15 F.webp",
+      "images/L 15 G.webp",
+      "images/L 15 H.webp"
+    ],
+    "featured": false,
+    "views": 375
+  },
+  {
+    "id": 16,
+    "number": 16,
+    "title": "Dell XPS 13 9350",
+    "brand": "Dell",
+    "category": "Ultrabook",
+    "processor": "Intel Core i5",
+    "generation": "6th Gen",
+    "speed": "Up to 3.4 GHz Turbo",
+    "ram": "8GB",
+    "ramGb": 8,
+    "storage": "8GB SSD",
+    "storageGb": 8,
+    "storageType": "SSD",
+    "display": "13\" FHD Display",
+    "screenSize": "13\"",
+    "graphics": "Integrated Intel UHD Graphics",
+    "hasDedicatedGpu": false,
+    "isTouchscreen": false,
+    "isConvertible": false,
+    "hasBacklitKeyboard": true,
+    "hasFingerprint": false,
+    "features": [
+      "Backlit Keyboard",
+      "Extended Battery Life (8-10+ Hrs)"
+    ],
+    "price": 3900,
+    "priceFormatted": "GH₵3,900",
+    "originalPrice": 4300,
+    "originalPriceFormatted": "GH₵4,300",
+    "status": "Available",
+    "condition": "Grade A+ Clean Direct Import",
+    "battery": "Tested Strong Battery (Health 85%+)",
+    "description": "Dell XPS 13 9350 powered by Intel Core i5 6th Gen with 8GB RAM and ultra-fast 8GB SSD. Engineered for speed, durability, and seamless everyday multitasking for professionals and students. Comes with a backlit keyboard for comfortable typing in any lighting condition.",
+    "images": [
+      "images/L 16 A(1).webp",
+      "images/L 16 A.webp",
+      "images/L 16 B.webp",
+      "images/L 16 C(1).webp",
+      "images/L 16 C.webp",
+      "images/L 16 D.webp",
+      "images/L 16 E.webp"
+    ],
+    "featured": true,
+    "views": 392
+  },
+  {
+    "id": 17,
+    "number": 17,
+    "title": "HP Pavilion x360",
+    "brand": "HP",
+    "category": "2-in-1 Touch",
+    "processor": "Intel Core i7",
+    "generation": "10th Gen",
+    "speed": "1.5 GHz",
+    "ram": "16GB",
+    "ramGb": 16,
+    "storage": "16GB SSD",
+    "storageGb": 16,
+    "storageType": "SSD",
+    "display": "14\" FHD Display (Touch)",
+    "screenSize": "14\"",
+    "graphics": "4GB Dedicated Graphics",
+    "hasDedicatedGpu": true,
+    "isTouchscreen": true,
+    "isConvertible": true,
+    "hasBacklitKeyboard": false,
+    "hasFingerprint": false,
+    "features": [
+      "Touchscreen",
+      "360° Convertible",
+      "4GB Dedicated Graphics"
+    ],
+    "price": 4950,
+    "priceFormatted": "GH₵4,950",
+    "originalPrice": 5450,
+    "originalPriceFormatted": "GH₵5,450",
+    "status": "Available",
+    "condition": "Grade A+ Clean Direct Import",
+    "battery": "Tested Strong Battery (Health 85%+)",
+    "description": "HP Pavilion x360 powered by Intel Core i7 10th Gen with 16GB RAM and ultra-fast 16GB SSD. Features a 360-degree convertible hinge for versatile laptop and tablet productivity on the go. Crisp, responsive touchscreen display.",
+    "images": [
+      "images/L 17 A.webp",
+      "images/L 17 B.webp",
+      "images/L 17 C(1).webp",
+      "images/L 17 C.webp",
+      "images/L 17 D.webp",
+      "images/L 17 E.webp",
+      "images/L 17 F.webp",
+      "images/L 17 G.webp"
+    ],
+    "featured": false,
+    "views": 409
+  },
+  {
+    "id": 18,
+    "number": 18,
+    "title": "Lenovo AMD Laptop",
+    "brand": "Lenovo",
+    "category": "Business",
+    "processor": "AMD Ryzen 5",
+    "generation": "",
+    "speed": "2.1 GHz",
+    "ram": "8GB",
+    "ramGb": 8,
+    "storage": "8GB SSD",
+    "storageGb": 8,
+    "storageType": "SSD",
+    "display": "15.6\" FHD Display",
+    "screenSize": "15.6\"",
+    "graphics": "2GB Dedicated Graphics",
+    "hasDedicatedGpu": true,
+    "isTouchscreen": false,
+    "isConvertible": false,
+    "hasBacklitKeyboard": false,
+    "hasFingerprint": false,
+    "features": [
+      "2GB Dedicated Graphics"
+    ],
+    "price": 3950,
+    "priceFormatted": "GH₵3,950",
+    "originalPrice": 4350,
+    "originalPriceFormatted": "GH₵4,350",
+    "status": "Available",
+    "condition": "Grade A+ Clean Direct Import",
+    "battery": "Tested Strong Battery (Health 85%+)",
+    "description": "Lenovo AMD Laptop powered by AMD Ryzen 5  with 8GB RAM and ultra-fast 8GB SSD. Equipped with 2GB Dedicated Graphics making it outstanding for design, video editing, CAD, and gaming.",
+    "images": [
+      "images/L 18 A.webp",
+      "images/L 18 B.webp",
+      "images/L 18 C.webp",
+      "images/L 18 D.webp",
+      "images/L 18 E.webp",
+      "images/L 18 F.webp"
+    ],
+    "featured": false,
+    "views": 426
+  },
+  {
+    "id": 19,
+    "number": 19,
+    "title": "Dell Latitude 7420 2-in-1",
+    "brand": "Dell",
+    "category": "2-in-1 Touch",
+    "processor": "Intel Core i7",
+    "generation": "11th Gen",
+    "speed": "3.0 GHz",
+    "ram": "16GB",
+    "ramGb": 16,
+    "storage": "16GB SSD",
+    "storageGb": 16,
+    "storageType": "SSD",
+    "display": "14\" FHD Display (Touch)",
+    "screenSize": "14\"",
+    "graphics": "Integrated Intel UHD Graphics",
+    "hasDedicatedGpu": false,
+    "isTouchscreen": true,
+    "isConvertible": true,
+    "hasBacklitKeyboard": true,
+    "hasFingerprint": true,
+    "features": [
+      "Touchscreen",
+      "360° Convertible",
+      "Backlit Keyboard",
+      "Fingerprint Scanner"
+    ],
+    "price": 4000,
+    "priceFormatted": "GH₵4,000",
+    "originalPrice": 4400,
+    "originalPriceFormatted": "GH₵4,400",
+    "status": "Sold Out",
+    "condition": "Grade A+ Clean Direct Import",
+    "battery": "Tested Strong Battery (Health 85%+)",
+    "description": "Dell Latitude 7420 2-in-1 powered by Intel Core i7 11th Gen with 16GB RAM and ultra-fast 16GB SSD. Features a 360-degree convertible hinge for versatile laptop and tablet productivity on the go. Comes with a backlit keyboard for comfortable typing in any lighting condition. Crisp, responsive touchscreen display.",
+    "images": [
+      "images/L 19 A.webp",
+      "images/L 19 B.webp",
+      "images/L 19 C.webp",
+      "images/L 19 D.webp",
+      "images/L 19 E.webp",
+      "images/L 19 F.webp",
+      "images/L 19 G.webp"
+    ],
+    "featured": false,
+    "views": 443
+  },
+  {
+    "id": 20,
+    "number": 20,
+    "title": "Lenovo Flex 14",
+    "brand": "Lenovo",
+    "category": "2-in-1 Touch",
+    "processor": "Intel Core i5",
+    "generation": "8th Gen",
+    "speed": "1.80 GHz",
+    "ram": "8GB",
+    "ramGb": 8,
+    "storage": "8GB SSD",
+    "storageGb": 8,
+    "storageType": "SSD",
+    "display": "14\" FHD Display (Touch)",
+    "screenSize": "14\"",
+    "graphics": "Integrated Intel UHD Graphics",
+    "hasDedicatedGpu": false,
+    "isTouchscreen": true,
+    "isConvertible": false,
+    "hasBacklitKeyboard": true,
+    "hasFingerprint": true,
+    "features": [
+      "Touchscreen",
+      "Backlit Keyboard",
+      "Fingerprint Scanner"
+    ],
+    "price": 4300,
+    "priceFormatted": "GH₵4,300",
+    "originalPrice": 4750,
+    "originalPriceFormatted": "GH₵4,750",
+    "status": "Available",
+    "condition": "Grade A+ Clean Direct Import",
+    "battery": "Tested Strong Battery (Health 85%+)",
+    "description": "Lenovo Flex 14 powered by Intel Core i5 8th Gen with 8GB RAM and ultra-fast 8GB SSD. Engineered for speed, durability, and seamless everyday multitasking for professionals and students. Comes with a backlit keyboard for comfortable typing in any lighting condition. Crisp, responsive touchscreen display.",
+    "images": [
+      "images/L 20 A.webp",
+      "images/L 20 B.webp",
+      "images/L 20 C.webp",
+      "images/L 20 D.webp",
+      "images/L 20 E.webp",
+      "images/L 20 F.webp"
+    ],
+    "featured": false,
+    "views": 460
+  },
+  {
+    "id": 21,
+    "number": 21,
+    "title": "HP EliteBook 845 G7",
+    "brand": "HP",
+    "category": "Performance",
+    "processor": "AMD Ryzen 7 Pro",
+    "generation": "",
+    "speed": "1.7 GHz",
+    "ram": "16GB",
+    "ramGb": 16,
+    "storage": "16GB SSD",
+    "storageGb": 16,
+    "storageType": "SSD",
+    "display": "13\" FHD Display",
+    "screenSize": "13\"",
+    "graphics": "AMD Radeon Graphics",
+    "hasDedicatedGpu": false,
+    "isTouchscreen": false,
+    "isConvertible": false,
+    "hasBacklitKeyboard": true,
+    "hasFingerprint": true,
+    "features": [
+      "Backlit Keyboard",
+      "Fingerprint Scanner"
+    ],
+    "price": 4950,
+    "priceFormatted": "GH₵4,950",
+    "originalPrice": 5450,
+    "originalPriceFormatted": "GH₵5,450",
+    "status": "Available",
+    "condition": "Grade A+ Clean Direct Import",
+    "battery": "Tested Strong Battery (Health 85%+)",
+    "description": "HP EliteBook 845 G7 powered by AMD Ryzen 7 Pro  with 16GB RAM and ultra-fast 16GB SSD. Engineered for speed, durability, and seamless everyday multitasking for professionals and students. Comes with a backlit keyboard for comfortable typing in any lighting condition.",
+    "images": [
+      "images/L 21 A.webp",
+      "images/L 21 B.webp",
+      "images/L 21 C.webp",
+      "images/L 21 D.webp",
+      "images/L 21 E.webp",
+      "images/L 21 F.webp",
+      "images/L 21 G.webp",
+      "images/L 21 H.webp"
+    ],
+    "featured": false,
+    "views": 477
+  },
+  {
+    "id": 22,
+    "number": 22,
+    "title": "Dell Precision 3561 Workstation",
+    "brand": "Dell",
+    "category": "Workstation",
+    "processor": "Intel Core i7",
+    "generation": "11th Gen",
+    "speed": "2.3 GHz",
+    "ram": "32GB",
+    "ramGb": 32,
+    "storage": "32GB SSD",
+    "storageGb": 32,
+    "storageType": "SSD",
+    "display": "15.6\" FHD Display",
+    "screenSize": "15.6\"",
+    "graphics": "4GB Dedicated Graphics",
+    "hasDedicatedGpu": true,
+    "isTouchscreen": false,
+    "isConvertible": false,
+    "hasBacklitKeyboard": true,
+    "hasFingerprint": false,
+    "features": [
+      "Backlit Keyboard",
+      "4GB Dedicated Graphics",
+      "Extended Battery Life (8-10+ Hrs)"
+    ],
+    "price": 7000,
+    "priceFormatted": "GH₵7,000",
+    "originalPrice": 7700,
+    "originalPriceFormatted": "GH₵7,700",
+    "status": "Hot Deal",
+    "condition": "Grade A+ Clean Direct Import",
+    "battery": "Tested Strong Battery (Health 85%+)",
+    "description": "Dell Precision 3561 Workstation powered by Intel Core i7 11th Gen with 32GB RAM and ultra-fast 32GB SSD. Equipped with 4GB Dedicated Graphics making it outstanding for design, video editing, CAD, and gaming. Comes with a backlit keyboard for comfortable typing in any lighting condition.",
+    "images": [
+      "images/L 22 A.webp",
+      "images/L 22 B.webp",
+      "images/L 22 C.webp",
+      "images/L 22 D.webp",
+      "images/L 22 E.webp",
+      "images/L 22 F.webp",
+      "images/L 22 G.webp",
+      "images/L 22 H.webp",
+      "images/L 22 I.webp"
+    ],
+    "featured": true,
+    "views": 494
+  },
+  {
+    "id": 23,
+    "number": 23,
+    "title": "Lenovo Yoga 80VF",
+    "brand": "Lenovo",
+    "category": "2-in-1 Touch",
+    "processor": "Intel Core i7",
+    "generation": "7th Gen",
+    "speed": "2.90 GHz",
+    "ram": "8GB",
+    "ramGb": 8,
+    "storage": "8GB SSD",
+    "storageGb": 8,
+    "storageType": "SSD",
+    "display": "14\" FHD Display (Touch)",
+    "screenSize": "14\"",
+    "graphics": "Integrated Intel UHD Graphics",
+    "hasDedicatedGpu": false,
+    "isTouchscreen": true,
+    "isConvertible": false,
+    "hasBacklitKeyboard": true,
+    "hasFingerprint": true,
+    "features": [
+      "Touchscreen",
+      "Backlit Keyboard",
+      "Fingerprint Scanner"
+    ],
+    "price": 4500,
+    "priceFormatted": "GH₵4,500",
+    "originalPrice": 4950,
+    "originalPriceFormatted": "GH₵4,950",
+    "status": "Available",
+    "condition": "Grade A+ Clean Direct Import",
+    "battery": "Tested Strong Battery (Health 85%+)",
+    "description": "Lenovo Yoga 80VF powered by Intel Core i7 7th Gen with 8GB RAM and ultra-fast 8GB SSD. Engineered for speed, durability, and seamless everyday multitasking for professionals and students. Comes with a backlit keyboard for comfortable typing in any lighting condition. Crisp, responsive touchscreen display.",
+    "images": [
+      "images/L 23 A.webp",
+      "images/L 23 B.webp",
+      "images/L 23 C.webp",
+      "images/L 23 D.webp",
+      "images/L 23 E.webp",
+      "images/L 23 F.webp",
+      "images/L 23 G.webp",
+      "images/L 23 H.webp",
+      "images/L 23 I.webp",
+      "images/L 23 J.webp",
+      "images/L 23 K.webp",
+      "images/L 23 L.webp"
+    ],
+    "featured": false,
+    "views": 511
+  },
+  {
+    "id": 24,
+    "number": 24,
+    "title": "MacBook Pro 2017",
+    "brand": "Apple",
+    "category": "Ultrabook",
+    "processor": "Intel Core i5",
+    "generation": "2017 Model",
+    "speed": "2.3 GHz",
+    "ram": "8GB",
+    "ramGb": 8,
+    "storage": "8GB SSD",
+    "storageGb": 8,
+    "storageType": "SSD",
+    "display": "13\" FHD Display",
+    "screenSize": "13\"",
+    "graphics": "Intel Iris Plus Graphics 640",
+    "hasDedicatedGpu": false,
+    "isTouchscreen": false,
+    "isConvertible": false,
+    "hasBacklitKeyboard": true,
+    "hasFingerprint": false,
+    "features": [
+      "Backlit Keyboard"
+    ],
+    "price": 3750,
+    "priceFormatted": "GH₵3,750",
+    "originalPrice": 4150,
+    "originalPriceFormatted": "GH₵4,150",
+    "status": "Available",
+    "condition": "Grade A+ Clean Direct Import",
+    "battery": "Tested Strong Battery (Health 85%+)",
+    "description": "MacBook Pro 2017 powered by Intel Core i5 2017 Model with 8GB RAM and ultra-fast 8GB SSD. Engineered for speed, durability, and seamless everyday multitasking for professionals and students. Comes with a backlit keyboard for comfortable typing in any lighting condition.",
+    "images": [
+      "images/L 24 A.webp",
+      "images/L 24 B.webp",
+      "images/L 24 C.webp",
+      "images/L 24 D.webp",
+      "images/L 24 E.webp",
+      "images/L 24 F.webp"
+    ],
+    "featured": false,
+    "views": 128
+  },
+  {
+    "id": 25,
+    "number": 25,
+    "title": "Lenovo Yoga",
+    "brand": "Lenovo",
+    "category": "2-in-1 Touch",
+    "processor": "Intel Core i5",
+    "generation": "11th Gen",
+    "speed": "2.42 GHz",
+    "ram": "8GB",
+    "ramGb": 8,
+    "storage": "8GB SSD",
+    "storageGb": 8,
+    "storageType": "SSD",
+    "display": "15.6\" FHD Display (Touch)",
+    "screenSize": "15.6\"",
+    "graphics": "Integrated Intel UHD Graphics",
+    "hasDedicatedGpu": false,
+    "isTouchscreen": true,
+    "isConvertible": false,
+    "hasBacklitKeyboard": true,
+    "hasFingerprint": true,
+    "features": [
+      "Touchscreen",
+      "Backlit Keyboard",
+      "Fingerprint Scanner"
+    ],
+    "price": 4300,
+    "priceFormatted": "GH₵4,300",
+    "originalPrice": 4750,
+    "originalPriceFormatted": "GH₵4,750",
+    "status": "Available",
+    "condition": "Grade A+ Clean Direct Import",
+    "battery": "Tested Strong Battery (Health 85%+)",
+    "description": "Lenovo Yoga powered by Intel Core i5 11th Gen with 8GB RAM and ultra-fast 8GB SSD. Engineered for speed, durability, and seamless everyday multitasking for professionals and students. Comes with a backlit keyboard for comfortable typing in any lighting condition. Crisp, responsive touchscreen display.",
+    "images": [
+      "images/L 25 A.webp",
+      "images/L 25 B.webp",
+      "images/L 25 C.webp",
+      "images/L 25 D.webp",
+      "images/L 25 E.webp",
+      "images/L 25 F.webp",
+      "images/L 25 G.webp",
+      "images/L 25 H.webp",
+      "images/L 25 I.webp"
+    ],
+    "featured": false,
+    "views": 145
+  },
+  {
+    "id": 26,
+    "number": 26,
+    "title": "HP Laptop",
+    "brand": "HP",
+    "category": "Business",
+    "processor": "Intel Core i5",
+    "generation": "10th Gen",
+    "speed": "1.20 GHz",
+    "ram": "8GB",
+    "ramGb": 8,
+    "storage": "8GB SSD",
+    "storageGb": 8,
+    "storageType": "SSD",
+    "display": "15.6\" FHD Display",
+    "screenSize": "15.6\"",
+    "graphics": "Integrated Intel UHD Graphics",
+    "hasDedicatedGpu": false,
+    "isTouchscreen": false,
+    "isConvertible": false,
+    "hasBacklitKeyboard": false,
+    "hasFingerprint": false,
+    "features": [],
+    "price": 3600,
+    "priceFormatted": "GH₵3,600",
+    "originalPrice": 4000,
+    "originalPriceFormatted": "GH₵4,000",
+    "status": "Available",
+    "condition": "Grade A+ Clean Direct Import",
+    "battery": "Tested Strong Battery (Health 85%+)",
+    "description": "HP Laptop powered by Intel Core i5 10th Gen with 8GB RAM and ultra-fast 8GB SSD. Engineered for speed, durability, and seamless everyday multitasking for professionals and students.",
+    "images": [
+      "images/L 26 A.webp",
+      "images/L 26 B.webp",
+      "images/L 26 C.webp",
+      "images/L 26 D.webp",
+      "images/L 26 F.webp"
+    ],
+    "featured": false,
+    "views": 162
+  },
+  {
+    "id": 27,
+    "number": 27,
+    "title": "Dell Latitude 5501",
+    "brand": "Dell",
+    "category": "2-in-1 Touch",
+    "processor": "Intel Core i7",
+    "generation": "9th Gen",
+    "speed": "2.60 GHz",
+    "ram": "16GB",
+    "ramGb": 16,
+    "storage": "16GB SSD",
+    "storageGb": 16,
+    "storageType": "SSD",
+    "display": "15.6\" FHD Display (Touch)",
+    "screenSize": "15.6\"",
+    "graphics": "Integrated Intel UHD Graphics",
+    "hasDedicatedGpu": false,
+    "isTouchscreen": true,
+    "isConvertible": false,
+    "hasBacklitKeyboard": false,
+    "hasFingerprint": false,
+    "features": [
+      "Touchscreen"
+    ],
+    "price": 5000,
+    "priceFormatted": "GH₵5,000",
+    "originalPrice": 5500,
+    "originalPriceFormatted": "GH₵5,500",
+    "status": "Available",
+    "condition": "Grade A+ Clean Direct Import",
+    "battery": "Tested Strong Battery (Health 85%+)",
+    "description": "Dell Latitude 5501 powered by Intel Core i7 9th Gen with 16GB RAM and ultra-fast 16GB SSD. Engineered for speed, durability, and seamless everyday multitasking for professionals and students. Crisp, responsive touchscreen display.",
+    "images": [
+      "images/L 27 A.webp",
+      "images/L 27 B.webp",
+      "images/L 27 C.webp",
+      "images/L 27 D.webp",
+      "images/L 27 E.webp",
+      "images/L 27 F.webp",
+      "images/L 27 G.webp",
+      "images/L 27 H.webp"
+    ],
+    "featured": false,
+    "views": 179
+  },
+  {
+    "id": 28,
+    "number": 28,
+    "title": "HP G7 Notebook",
+    "brand": "HP",
+    "category": "Business",
+    "processor": "Intel Core i3",
+    "generation": "10th Gen",
+    "speed": "Up to 3.4 GHz Turbo",
+    "ram": "4GB",
+    "ramGb": 4,
+    "storage": "4GB SSD",
+    "storageGb": 4,
+    "storageType": "SSD",
+    "display": "15.6\" FHD Display",
+    "screenSize": "15.6\"",
+    "graphics": "Integrated Intel UHD Graphics",
+    "hasDedicatedGpu": false,
+    "isTouchscreen": false,
+    "isConvertible": false,
+    "hasBacklitKeyboard": false,
+    "hasFingerprint": false,
+    "features": [],
+    "price": 4100,
+    "priceFormatted": "GH₵4,100",
+    "originalPrice": 4550,
+    "originalPriceFormatted": "GH₵4,550",
+    "status": "Available",
+    "condition": "Grade A+ Clean Direct Import",
+    "battery": "Tested Strong Battery (Health 85%+)",
+    "description": "HP G7 Notebook powered by Intel Core i3 10th Gen with 4GB RAM and ultra-fast 4GB SSD. Engineered for speed, durability, and seamless everyday multitasking for professionals and students.",
+    "images": [
+      "images/L 28 A.webp",
+      "images/L 28 B.webp",
+      "images/L 28 C.webp",
+      "images/L 28 E.webp",
+      "images/L 28 F.webp",
+      "images/L 28 G.webp",
+      "images/L 28 H.webp",
+      "images/L 28 I.webp",
+      "images/L 28 J.webp"
+    ],
+    "featured": false,
+    "views": 196
+  },
+  {
+    "id": 29,
+    "number": 29,
+    "title": "Dell Laptop",
+    "brand": "Dell",
+    "category": "Business",
+    "processor": "Intel Core i5",
+    "generation": "10th Gen",
+    "speed": "1.20 GHz",
+    "ram": "8GB",
+    "ramGb": 8,
+    "storage": "8GB SSD",
+    "storageGb": 8,
+    "storageType": "SSD",
+    "display": "15.6\" FHD Display",
+    "screenSize": "15.6\"",
+    "graphics": "Integrated Intel UHD Graphics",
+    "hasDedicatedGpu": false,
+    "isTouchscreen": false,
+    "isConvertible": false,
+    "hasBacklitKeyboard": true,
+    "hasFingerprint": false,
+    "features": [
+      "Backlit Keyboard"
+    ],
+    "price": 3950,
+    "priceFormatted": "GH₵3,950",
+    "originalPrice": 4350,
+    "originalPriceFormatted": "GH₵4,350",
+    "status": "Available",
+    "condition": "Grade A+ Clean Direct Import",
+    "battery": "Tested Strong Battery (Health 85%+)",
+    "description": "Dell Laptop powered by Intel Core i5 10th Gen with 8GB RAM and ultra-fast 8GB SSD. Engineered for speed, durability, and seamless everyday multitasking for professionals and students. Comes with a backlit keyboard for comfortable typing in any lighting condition.",
+    "images": [
+      "images/L 29 A.webp",
+      "images/L 29 B.webp",
+      "images/L 29 C.webp",
+      "images/L 29 D.webp",
+      "images/L 29 E.webp",
+      "images/L 29 F.webp",
+      "images/L 29 G.webp"
+    ],
+    "featured": false,
+    "views": 213
+  },
+  {
+    "id": 30,
+    "number": 30,
+    "title": "Dell XPS",
+    "brand": "Dell",
+    "category": "Ultrabook",
+    "processor": "Intel Core i7",
+    "generation": "8th Gen",
+    "speed": "2.20 GHz",
+    "ram": "16GB",
+    "ramGb": 16,
+    "storage": "16GB SSD",
+    "storageGb": 16,
+    "storageType": "SSD",
+    "display": "15.6\" FHD Display",
+    "screenSize": "15.6\"",
+    "graphics": "4GB Dedicated Graphics",
+    "hasDedicatedGpu": true,
+    "isTouchscreen": false,
+    "isConvertible": false,
+    "hasBacklitKeyboard": true,
+    "hasFingerprint": false,
+    "features": [
+      "Backlit Keyboard",
+      "4GB Dedicated Graphics"
+    ],
+    "price": 5300,
+    "priceFormatted": "GH₵5,300",
+    "originalPrice": 5850,
+    "originalPriceFormatted": "GH₵5,850",
+    "status": "Hot Deal",
+    "condition": "Grade A+ Clean Direct Import",
+    "battery": "Tested Strong Battery (Health 85%+)",
+    "description": "Dell XPS powered by Intel Core i7 8th Gen with 16GB RAM and ultra-fast 16GB SSD. Equipped with 4GB Dedicated Graphics making it outstanding for design, video editing, CAD, and gaming. Comes with a backlit keyboard for comfortable typing in any lighting condition.",
+    "images": [
+      "images/L 30 A.webp",
+      "images/L 30 B.webp",
+      "images/L 30 C.webp",
+      "images/L 30 D.webp",
+      "images/L 30 E.webp",
+      "images/L 30 F.webp",
+      "images/L 30 G.webp",
+      "images/L 30 H.webp",
+      "images/L 30 I.webp"
+    ],
+    "featured": false,
+    "views": 230
+  },
+  {
+    "id": 31,
+    "number": 31,
+    "title": "Dell Precision 5510 Workstation",
+    "brand": "Dell",
+    "category": "Workstation",
+    "processor": "Intel Xeon",
+    "generation": "",
+    "speed": "2.80 GHz",
+    "ram": "16GB",
+    "ramGb": 16,
+    "storage": "16GB SSD",
+    "storageGb": 16,
+    "storageType": "SSD",
+    "display": "15.6\" FHD Display",
+    "screenSize": "15.6\"",
+    "graphics": "2GB Dedicated Graphics",
+    "hasDedicatedGpu": true,
+    "isTouchscreen": false,
+    "isConvertible": false,
+    "hasBacklitKeyboard": true,
+    "hasFingerprint": false,
+    "features": [
+      "Backlit Keyboard",
+      "2GB Dedicated Graphics"
+    ],
+    "price": 3750,
+    "priceFormatted": "GH₵3,750",
+    "originalPrice": 4150,
+    "originalPriceFormatted": "GH₵4,150",
+    "status": "Available",
+    "condition": "Grade A+ Clean Direct Import",
+    "battery": "Tested Strong Battery (Health 85%+)",
+    "description": "Dell Precision 5510 Workstation powered by Intel Xeon  with 16GB RAM and ultra-fast 16GB SSD. Equipped with 2GB Dedicated Graphics making it outstanding for design, video editing, CAD, and gaming. Comes with a backlit keyboard for comfortable typing in any lighting condition.",
+    "images": [
+      "images/L 31 A.webp",
+      "images/L 31 B.webp",
+      "images/L 31 C.webp",
+      "images/L 31 D.webp",
+      "images/L 31 E.webp",
+      "images/L 31 F.webp",
+      "images/L 31 G.webp"
+    ],
+    "featured": false,
+    "views": 247
+  },
+  {
+    "id": 32,
+    "number": 32,
+    "title": "Samsung Laptop",
+    "brand": "Samsung",
+    "category": "2-in-1 Touch",
+    "processor": "Intel Core i7",
+    "generation": "10th Gen",
+    "speed": "2.30 GHz",
+    "ram": "12GB",
+    "ramGb": 12,
+    "storage": "12GB SSD",
+    "storageGb": 12,
+    "storageType": "SSD",
+    "display": "13\" FHD Display (Touch)",
+    "screenSize": "13\"",
+    "graphics": "Integrated Intel UHD Graphics",
+    "hasDedicatedGpu": false,
+    "isTouchscreen": true,
+    "isConvertible": false,
+    "hasBacklitKeyboard": true,
+    "hasFingerprint": false,
+    "features": [
+      "Touchscreen",
+      "Backlit Keyboard"
+    ],
+    "price": 5300,
+    "priceFormatted": "GH₵5,300",
+    "originalPrice": 5850,
+    "originalPriceFormatted": "GH₵5,850",
+    "status": "Available",
+    "condition": "Grade A+ Clean Direct Import",
+    "battery": "Tested Strong Battery (Health 85%+)",
+    "description": "Samsung Laptop powered by Intel Core i7 10th Gen with 12GB RAM and ultra-fast 12GB SSD. Engineered for speed, durability, and seamless everyday multitasking for professionals and students. Comes with a backlit keyboard for comfortable typing in any lighting condition. Crisp, responsive touchscreen display.",
+    "images": [
+      "images/L 32 A.webp",
+      "images/L 32 B.webp",
+      "images/L 32 C.webp",
+      "images/L 32 D.webp",
+      "images/L 32 E.webp",
+      "images/L 32 F.webp",
+      "images/L 32 G.webp",
+      "images/L 32 H.webp",
+      "images/L 32 I.webp"
+    ],
+    "featured": false,
+    "views": 264
+  },
+  {
+    "id": 33,
+    "number": 33,
+    "title": "Acer Nitro 5 Gaming Laptop",
+    "brand": "Acer",
+    "category": "Gaming",
+    "processor": "Intel Core i5",
+    "generation": "11th Gen",
+    "speed": "2.70 GHz",
+    "ram": "8GB",
+    "ramGb": 8,
+    "storage": "8GB SSD",
+    "storageGb": 8,
+    "storageType": "SSD",
+    "display": "15.6\" FHD Display",
+    "screenSize": "15.6\"",
+    "graphics": "4GB Dedicated Graphics",
+    "hasDedicatedGpu": true,
+    "isTouchscreen": false,
+    "isConvertible": false,
+    "hasBacklitKeyboard": true,
+    "hasFingerprint": false,
+    "features": [
+      "Backlit Keyboard",
+      "4GB Dedicated Graphics"
+    ],
+    "price": 4800,
+    "priceFormatted": "GH₵4,800",
+    "originalPrice": 5300,
+    "originalPriceFormatted": "GH₵5,300",
+    "status": "Available",
+    "condition": "Grade A+ Clean Direct Import",
+    "battery": "Tested Strong Battery (Health 85%+)",
+    "description": "Acer Nitro 5 Gaming Laptop powered by Intel Core i5 11th Gen with 8GB RAM and ultra-fast 8GB SSD. Equipped with 4GB Dedicated Graphics making it outstanding for design, video editing, CAD, and gaming. Comes with a backlit keyboard for comfortable typing in any lighting condition.",
+    "images": [
+      "images/L 33 A.webp",
+      "images/L 33 B.webp",
+      "images/L 33 C.webp",
+      "images/L 33 D.webp",
+      "images/L 33 E.webp",
+      "images/L 33 F.webp",
+      "images/L 33 G.webp",
+      "images/L 33 H.webp",
+      "images/L 33 I.webp"
+    ],
+    "featured": true,
+    "views": 281
+  },
+  {
+    "id": 34,
+    "number": 34,
+    "title": "Dell Precision 3560",
+    "brand": "Dell",
+    "category": "Workstation",
+    "processor": "Intel Core i7",
+    "generation": "11th Gen",
+    "speed": "2.80 GHz",
+    "ram": "32GB",
+    "ramGb": 32,
+    "storage": "32GB SSD",
+    "storageGb": 32,
+    "storageType": "SSD",
+    "display": "15.6\" FHD Display",
+    "screenSize": "15.6\"",
+    "graphics": "Integrated Intel UHD Graphics",
+    "hasDedicatedGpu": false,
+    "isTouchscreen": false,
+    "isConvertible": false,
+    "hasBacklitKeyboard": true,
+    "hasFingerprint": false,
+    "features": [
+      "Backlit Keyboard"
+    ],
+    "price": 5500,
+    "priceFormatted": "GH₵5,500",
+    "originalPrice": 6050,
+    "originalPriceFormatted": "GH₵6,050",
+    "status": "Available",
+    "condition": "Grade A+ Clean Direct Import",
+    "battery": "Tested Strong Battery (Health 85%+)",
+    "description": "Dell Precision 3560 powered by Intel Core i7 11th Gen with 32GB RAM and ultra-fast 32GB SSD. Engineered for speed, durability, and seamless everyday multitasking for professionals and students. Comes with a backlit keyboard for comfortable typing in any lighting condition.",
+    "images": [
+      "images/L 34 A.webp",
+      "images/L 34 B.webp",
+      "images/L 34 C.webp",
+      "images/L 34 D.webp",
+      "images/L 34 E.webp",
+      "images/L 34 F.webp",
+      "images/L 34 G.webp"
+    ],
+    "featured": false,
+    "views": 298
+  },
+  {
+    "id": 35,
+    "number": 35,
+    "title": "HP ProBook 430 G6",
+    "brand": "HP",
+    "category": "Performance",
+    "processor": "Intel Core i5",
+    "generation": "8th Gen",
+    "speed": "1.80 GHz",
+    "ram": "16GB",
+    "ramGb": 16,
+    "storage": "16GB SSD",
+    "storageGb": 16,
+    "storageType": "SSD",
+    "display": "13\" FHD Display",
+    "screenSize": "13\"",
+    "graphics": "Integrated Intel UHD Graphics",
+    "hasDedicatedGpu": false,
+    "isTouchscreen": false,
+    "isConvertible": false,
+    "hasBacklitKeyboard": true,
+    "hasFingerprint": true,
+    "features": [
+      "Backlit Keyboard",
+      "Fingerprint Scanner"
+    ],
+    "price": 4350,
+    "priceFormatted": "GH₵4,350",
+    "originalPrice": 4800,
+    "originalPriceFormatted": "GH₵4,800",
+    "status": "Available",
+    "condition": "Grade A+ Clean Direct Import",
+    "battery": "Tested Strong Battery (Health 85%+)",
+    "description": "HP ProBook 430 G6 powered by Intel Core i5 8th Gen with 16GB RAM and ultra-fast 16GB SSD. Engineered for speed, durability, and seamless everyday multitasking for professionals and students. Comes with a backlit keyboard for comfortable typing in any lighting condition.",
+    "images": [
+      "images/L 35 A.webp",
+      "images/L 35 B.webp",
+      "images/L 35 C.webp",
+      "images/L 35 D.webp",
+      "images/L 35 E.webp",
+      "images/L 35 F.webp",
+      "images/L 35 G.webp"
+    ],
+    "featured": false,
+    "views": 315
+  },
+  {
+    "id": 36,
+    "number": 36,
+    "title": "Dell Latitude 5520",
+    "brand": "Dell",
+    "category": "Performance",
+    "processor": "Intel Core i7",
+    "generation": "11th Gen",
+    "speed": "2.80 GHz",
+    "ram": "16GB",
+    "ramGb": 16,
+    "storage": "16GB SSD",
+    "storageGb": 16,
+    "storageType": "SSD",
+    "display": "15.6\" FHD Display",
+    "screenSize": "15.6\"",
+    "graphics": "Integrated Intel UHD Graphics",
+    "hasDedicatedGpu": false,
+    "isTouchscreen": false,
+    "isConvertible": false,
+    "hasBacklitKeyboard": true,
+    "hasFingerprint": false,
+    "features": [
+      "Backlit Keyboard"
+    ],
+    "price": 5200,
+    "priceFormatted": "GH₵5,200",
+    "originalPrice": 5750,
+    "originalPriceFormatted": "GH₵5,750",
+    "status": "Available",
+    "condition": "Grade A+ Clean Direct Import",
+    "battery": "Tested Strong Battery (Health 85%+)",
+    "description": "Dell Latitude 5520 powered by Intel Core i7 11th Gen with 16GB RAM and ultra-fast 16GB SSD. Engineered for speed, durability, and seamless everyday multitasking for professionals and students. Comes with a backlit keyboard for comfortable typing in any lighting condition.",
+    "images": [
+      "images/L 36 A.webp",
+      "images/L 36 B.webp",
+      "images/L 36 C.webp",
+      "images/L 36 D.webp",
+      "images/L 36 E.webp",
+      "images/L 36 F.webp",
+      "images/L 36 G.webp",
+      "images/L 36 H.webp"
+    ],
+    "featured": false,
+    "views": 332
+  },
+  {
+    "id": 37,
+    "number": 37,
+    "title": "Lenovo Flex 5",
+    "brand": "Lenovo",
+    "category": "2-in-1 Touch",
+    "processor": "Intel Core i5",
+    "generation": "11th Gen",
+    "speed": "2.4 GHz",
+    "ram": "8GB",
+    "ramGb": 8,
+    "storage": "8GB SSD",
+    "storageGb": 8,
+    "storageType": "SSD",
+    "display": "14\" FHD Display (Touch)",
+    "screenSize": "14\"",
+    "graphics": "Integrated Intel UHD Graphics",
+    "hasDedicatedGpu": false,
+    "isTouchscreen": true,
+    "isConvertible": true,
+    "hasBacklitKeyboard": true,
+    "hasFingerprint": true,
+    "features": [
+      "Touchscreen",
+      "360° Convertible",
+      "Backlit Keyboard",
+      "Fingerprint Scanner"
+    ],
+    "price": 5200,
+    "priceFormatted": "GH₵5,200",
+    "originalPrice": 5750,
+    "originalPriceFormatted": "GH₵5,750",
+    "status": "Sold Out",
+    "condition": "Grade A+ Clean Direct Import",
+    "battery": "Tested Strong Battery (Health 85%+)",
+    "description": "Lenovo Flex 5 powered by Intel Core i5 11th Gen with 8GB RAM and ultra-fast 8GB SSD. Features a 360-degree convertible hinge for versatile laptop and tablet productivity on the go. Comes with a backlit keyboard for comfortable typing in any lighting condition. Crisp, responsive touchscreen display.",
+    "images": [
+      "images/L 37-38 A.webp",
+      "images/L 37-38 B.webp",
+      "images/L 37-38 C.webp",
+      "images/L 37-38 D.webp",
+      "images/L 37-38 E.webp",
+      "images/L 37-38 F.webp",
+      "images/L 37-38 G.webp",
+      "images/L 37-38 H.webp",
+      "images/L 37-38 I.webp"
+    ],
+    "featured": false,
+    "views": 349
+  },
+  {
+    "id": 38,
+    "number": 38,
+    "title": "Lenovo Flex Almost New",
+    "brand": "Lenovo",
+    "category": "2-in-1 Touch",
+    "processor": "AMD Ryzen 5 / Core i5",
+    "generation": "11th Gen",
+    "speed": "Up to 3.4 GHz Turbo",
+    "ram": "8GB",
+    "ramGb": 8,
+    "storage": "256GB SSD",
+    "storageGb": 256,
+    "storageType": "SSD",
+    "display": "14\" FHD Display (Touch)",
+    "screenSize": "14\"",
+    "graphics": "Integrated Intel UHD Graphics",
+    "hasDedicatedGpu": false,
+    "isTouchscreen": true,
+    "isConvertible": true,
+    "hasBacklitKeyboard": true,
+    "hasFingerprint": true,
+    "features": [
+      "Touchscreen",
+      "360° Convertible",
+      "Fingerprint Scanner",
+      "Backlit Keyboard",
+      "Almost New Grade A+"
+    ],
+    "price": 5350,
+    "priceFormatted": "GH₵5,350",
+    "originalPrice": 5900,
+    "originalPriceFormatted": "GH₵5,900",
+    "status": "Almost New",
+    "condition": "Grade A+ Clean Direct Import",
+    "battery": "Tested Strong Battery (Health 85%+)",
+    "description": "Lenovo Flex Almost New powered by AMD Ryzen 5 / Core i5 11th Gen with 8GB RAM and ultra-fast 256GB SSD. Features a 360-degree convertible hinge for versatile laptop and tablet productivity on the go. Comes with a backlit keyboard for comfortable typing in any lighting condition. Crisp, responsive touchscreen display.",
+    "images": [
+      "images/L 37-38 A.webp",
+      "images/L 37-38 B.webp",
+      "images/L 37-38 C.webp",
+      "images/L 37-38 D.webp",
+      "images/L 37-38 E.webp",
+      "images/L 37-38 F.webp",
+      "images/L 37-38 G.webp",
+      "images/L 37-38 H.webp",
+      "images/L 37-38 I.webp"
+    ],
+    "featured": false,
+    "views": 366
+  },
+  {
+    "id": 39,
+    "number": 39,
+    "title": "Dell Inspiron 5593",
+    "brand": "Dell",
+    "category": "2-in-1 Touch",
+    "processor": "Intel Core i7",
+    "generation": "10th Gen",
+    "speed": "1.3 GHz",
+    "ram": "8GB",
+    "ramGb": 8,
+    "storage": "8GB SSD",
+    "storageGb": 8,
+    "storageType": "SSD",
+    "display": "15.6\" FHD Display (Touch)",
+    "screenSize": "15.6\"",
+    "graphics": "Integrated Intel UHD Graphics",
+    "hasDedicatedGpu": false,
+    "isTouchscreen": true,
+    "isConvertible": false,
+    "hasBacklitKeyboard": true,
+    "hasFingerprint": false,
+    "features": [
+      "Touchscreen",
+      "Backlit Keyboard"
+    ],
+    "price": 3800,
+    "priceFormatted": "GH₵3,800",
+    "originalPrice": 4200,
+    "originalPriceFormatted": "GH₵4,200",
+    "status": "Available",
+    "condition": "Grade A+ Clean Direct Import",
+    "battery": "Tested Strong Battery (Health 85%+)",
+    "description": "Dell Inspiron 5593 powered by Intel Core i7 10th Gen with 8GB RAM and ultra-fast 8GB SSD. Engineered for speed, durability, and seamless everyday multitasking for professionals and students. Comes with a backlit keyboard for comfortable typing in any lighting condition. Crisp, responsive touchscreen display.",
+    "images": [
+      "images/L 1 A.webp",
+      "images/L 1 B.webp",
+      "images/L 1 C.webp"
+    ],
+    "featured": false,
+    "views": 383
+  },
+  {
+    "id": 40,
+    "number": 40,
+    "title": "Samsung Laptop",
+    "brand": "Samsung",
+    "category": "2-in-1 Touch",
+    "processor": "Intel Core i7",
+    "generation": "11th Gen",
+    "speed": "2.8 GHz",
+    "ram": "16GB",
+    "ramGb": 16,
+    "storage": "16GB SSD",
+    "storageGb": 16,
+    "storageType": "SSD",
+    "display": "15.6\" FHD Display (Touch)",
+    "screenSize": "15.6\"",
+    "graphics": "4GB Dedicated Graphics",
+    "hasDedicatedGpu": true,
+    "isTouchscreen": true,
+    "isConvertible": false,
+    "hasBacklitKeyboard": true,
+    "hasFingerprint": false,
+    "features": [
+      "Touchscreen",
+      "Backlit Keyboard",
+      "4GB Dedicated Graphics"
+    ],
+    "price": 4800,
+    "priceFormatted": "GH₵4,800",
+    "originalPrice": 5300,
+    "originalPriceFormatted": "GH₵5,300",
+    "status": "Available",
+    "condition": "Grade A+ Clean Direct Import",
+    "battery": "Tested Strong Battery (Health 85%+)",
+    "description": "Samsung Laptop powered by Intel Core i7 11th Gen with 16GB RAM and ultra-fast 16GB SSD. Equipped with 4GB Dedicated Graphics making it outstanding for design, video editing, CAD, and gaming. Comes with a backlit keyboard for comfortable typing in any lighting condition. Crisp, responsive touchscreen display.",
+    "images": [
+      "images/L 32 A.webp",
+      "images/L 32 B.webp",
+      "images/L 32 C.webp"
+    ],
+    "featured": false,
+    "views": 400
+  },
+  {
+    "id": 41,
+    "number": 41,
+    "title": "Dell Latitude 5510",
+    "brand": "Dell",
+    "category": "2-in-1 Touch",
+    "processor": "Intel Core i7",
+    "generation": "11th Gen",
+    "speed": "2.8 GHz",
+    "ram": "16GB",
+    "ramGb": 16,
+    "storage": "16GB SSD",
+    "storageGb": 16,
+    "storageType": "SSD",
+    "display": "15.6\" FHD Display (Touch)",
+    "screenSize": "15.6\"",
+    "graphics": "4GB Dedicated Graphics",
+    "hasDedicatedGpu": true,
+    "isTouchscreen": true,
+    "isConvertible": false,
+    "hasBacklitKeyboard": true,
+    "hasFingerprint": false,
+    "features": [
+      "Touchscreen",
+      "Backlit Keyboard",
+      "4GB Dedicated Graphics"
+    ],
+    "price": 4600,
+    "priceFormatted": "GH₵4,600",
+    "originalPrice": 5100,
+    "originalPriceFormatted": "GH₵5,100",
+    "status": "Available",
+    "condition": "Grade A+ Clean Direct Import",
+    "battery": "Tested Strong Battery (Health 85%+)",
+    "description": "Dell Latitude 5510 powered by Intel Core i7 11th Gen with 16GB RAM and ultra-fast 16GB SSD. Equipped with 4GB Dedicated Graphics making it outstanding for design, video editing, CAD, and gaming. Comes with a backlit keyboard for comfortable typing in any lighting condition. Crisp, responsive touchscreen display.",
+    "images": [
+      "images/L 36 A.webp",
+      "images/L 36 B.webp",
+      "images/L 36 C.webp"
+    ],
+    "featured": false,
+    "views": 417
+  }
+];
+
+  </script>
+  <script>
+/**
+ * Store & Data Management Layer for Manaki Laptop Deals
+ * Handles LocalStorage persistence, CRUD, Admin Auth, WhatsApp linking,
+ * Route Navigation (GAS Web App vs Standalone), Google Drive Image handling, and Cloud Sync.
+ */
+
+const STORAGE_KEY = 'manaki_laptops_v1';
+const AUTH_KEY = 'manaki_admin_auth';
+const FAVORITES_KEY = 'manaki_favorites';
+const ADMIN_PASSWORD = 'Fakeme@12345';
+const DEFAULT_WHATSAPP_NUMBER = '233543862551'; // Manaki Laptop Deals Ghana: 0543862551
+
+const LaptopStore = {
+  /**
+   * Initializes store with window.SERVER_LAPTOPS or window.DEFAULT_LAPTOPS
+   */
+  init() {
+    // If running in Google Apps Script or server injected data
+    if (typeof window !== 'undefined' && Array.isArray(window.SERVER_LAPTOPS) && window.SERVER_LAPTOPS.length > 0) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(window.SERVER_LAPTOPS));
+    } else {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      let hasValidData = false;
+      if (stored) {
+        try {
+          const parsed = JSON.parse(stored);
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            hasValidData = true;
+          }
+        } catch(e) {}
+      }
+      if (!hasValidData) {
+        // Fallback to window.DEFAULT_LAPTOPS or window.SERVER_LAPTOPS
+        const fallback = (typeof window !== 'undefined' && Array.isArray(window.DEFAULT_LAPTOPS) && window.DEFAULT_LAPTOPS.length > 0)
+          ? window.DEFAULT_LAPTOPS
+          : ((typeof window !== 'undefined' && Array.isArray(window.SERVER_LAPTOPS) && window.SERVER_LAPTOPS.length > 0) ? window.SERVER_LAPTOPS : []);
+        if (fallback.length > 0) {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(fallback));
+        }
+      }
+    }
+
+    // Ensure phone number is set to Manaki's number
+    const savedPhone = localStorage.getItem('manaki_whatsapp_number') || localStorage.getItem('akiola_whatsapp_number');
+    if (!savedPhone || savedPhone === '233540000000') {
+      localStorage.setItem('manaki_whatsapp_number', DEFAULT_WHATSAPP_NUMBER);
+    }
+
+    // Auto-migrate any cached local images from .jpg to .webp (safely avoid touching Drive links)
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored && (stored.includes('images/L') && (stored.includes('.jpg') || stored.includes('.JPG') || stored.includes('.jpeg')))) {
+      const updated = stored.replace(/images\/(L[^\"]+?)\.jpe?g/gi, 'images/$1.webp');
+      localStorage.setItem(STORAGE_KEY, updated);
+    }
+  },
+
+  /**
+   * Get all laptops from localStorage with automatic fallback recovery
+   */
+  getAll() {
+    this.init();
+    try {
+      const data = localStorage.getItem(STORAGE_KEY);
+      if (data) {
+        const parsed = JSON.parse(data);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          return parsed;
+        }
+      }
+    } catch (e) {
+      console.error('Failed to parse laptops from localStorage', e);
+    }
+
+    // Fallback if localStorage was empty [] or missing
+    const fallback = (typeof window !== 'undefined' && Array.isArray(window.SERVER_LAPTOPS) && window.SERVER_LAPTOPS.length > 0)
+      ? window.SERVER_LAPTOPS
+      : ((typeof window !== 'undefined' && Array.isArray(window.DEFAULT_LAPTOPS) && window.DEFAULT_LAPTOPS.length > 0) ? window.DEFAULT_LAPTOPS : []);
+    
+    if (fallback.length > 0) {
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(fallback)); } catch(e) {}
+    }
+    return fallback;
+  },
+
+  /**
+   * Get a single laptop by ID or number
+   */
+  getById(id) {
+    const list = this.getAll();
+    return list.find(item => String(item.id) === String(id) || String(item.number) === String(id)) || null;
+  },
+
+  /**
+   * Add a new laptop
+   */
+  add(laptopData) {
+    const list = this.getAll();
+    const nextId = list.reduce((max, item) => Math.max(max, Number(item.id) || 0), 0) + 1;
+    
+    const newLaptop = {
+      id: nextId,
+      number: nextId,
+      title: laptopData.title || 'Untitled Laptop',
+      brand: laptopData.brand || 'Dell',
+      category: laptopData.category || 'Business',
+      processor: laptopData.processor || 'Intel Core i5',
+      generation: laptopData.generation || '10th Gen',
+      speed: laptopData.speed || '2.4 GHz',
+      ram: laptopData.ram || '8GB',
+      ramGb: parseInt(laptopData.ram) || 8,
+      storage: laptopData.storage || '256GB SSD',
+      storageGb: parseInt(laptopData.storage) || 256,
+      storageType: laptopData.storageType || 'SSD',
+      display: laptopData.display || '14" FHD Display',
+      screenSize: laptopData.screenSize || '14"',
+      graphics: laptopData.graphics || 'Integrated Intel UHD',
+      hasDedicatedGpu: Boolean(laptopData.hasDedicatedGpu),
+      isTouchscreen: Boolean(laptopData.isTouchscreen),
+      isConvertible: Boolean(laptopData.isConvertible),
+      hasBacklitKeyboard: Boolean(laptopData.hasBacklitKeyboard),
+      hasFingerprint: Boolean(laptopData.hasFingerprint),
+      features: Array.isArray(laptopData.features) ? laptopData.features : [],
+      price: Number(laptopData.price) || 0,
+      priceFormatted: `GH₵${Number(laptopData.price || 0).toLocaleString()}`,
+      originalPrice: Number(laptopData.originalPrice) || Math.round(Number(laptopData.price || 0) * 1.1),
+      originalPriceFormatted: `GH₵${(Number(laptopData.originalPrice) || Math.round(Number(laptopData.price || 0) * 1.1)).toLocaleString()}`,
+      status: laptopData.status || 'Available',
+      condition: laptopData.condition || 'Grade A+ Clean Direct Import',
+      battery: laptopData.battery || 'Tested Strong Battery',
+      description: laptopData.description || 'High-performance laptop in excellent condition.',
+      images: Array.isArray(laptopData.images) && laptopData.images.length > 0 
+        ? laptopData.images 
+        : ['images/L 1 A.webp'],
+      featured: Boolean(laptopData.featured),
+      notes: laptopData.notes || '',
+      created_at: new Date().toISOString()
+    };
+
+    list.unshift(newLaptop);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+    return newLaptop;
+  },
+
+  /**
+   * Update an existing laptop by ID
+   */
+  update(id, updates) {
+    const list = this.getAll();
+    const index = list.findIndex(item => String(item.id) === String(id));
+    if (index === -1) return null;
+
+    const existing = list[index];
+    const updated = {
+      ...existing,
+      ...updates,
+      id: existing.id,
+      number: existing.number
+    };
+
+    if (updates.price !== undefined) {
+      updated.price = Number(updates.price);
+      updated.priceFormatted = `GH₵${Number(updates.price).toLocaleString()}`;
+    }
+    if (updates.originalPrice !== undefined) {
+      updated.originalPrice = Number(updates.originalPrice);
+      updated.originalPriceFormatted = `GH₵${Number(updates.originalPrice).toLocaleString()}`;
+    }
+    if (updates.ram !== undefined) {
+      updated.ramGb = parseInt(updates.ram) || existing.ramGb;
+    }
+    if (updates.storage !== undefined) {
+      updated.storageGb = parseInt(updates.storage) || existing.storageGb;
+    }
+
+    list[index] = updated;
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+    return updated;
+  },
+
+  /**
+   * Delete a laptop by ID
+   */
+  delete(id) {
+    const list = this.getAll();
+    const filtered = list.filter(item => String(item.id) !== String(id));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(filtered));
+    return true;
+  },
+
+  /**
+   * Reset store to initial defaults from data.js
+   */
+  resetToDefaults() {
+    if (window.DEFAULT_LAPTOPS && window.DEFAULT_LAPTOPS.length > 0) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(window.DEFAULT_LAPTOPS));
+      return true;
+    }
+    return false;
+  },
+
+  /**
+   * Export all data as JSON string
+   */
+  exportJSON() {
+    return JSON.stringify(this.getAll(), null, 2);
+  },
+
+  /**
+   * Import data from JSON string
+   */
+  importJSON(jsonString) {
+    try {
+      const data = JSON.parse(jsonString);
+      if (Array.isArray(data)) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+        return true;
+      }
+      return false;
+    } catch (e) {
+      console.error('Invalid JSON for import', e);
+      return false;
+    }
+  }
+};
+
+/**
+ * Admin Authentication Controller
+ */
+const AdminAuth = {
+  login(password) {
+    if (password === ADMIN_PASSWORD) {
+      sessionStorage.setItem(AUTH_KEY, 'true');
+      localStorage.setItem(AUTH_KEY, 'true');
+      return { success: true };
+    }
+    return { success: false, message: 'Invalid password. Access denied.' };
+  },
+
+  isAuthenticated() {
+    return sessionStorage.getItem(AUTH_KEY) === 'true' || localStorage.getItem(AUTH_KEY) === 'true';
+  },
+
+  logout() {
+    sessionStorage.removeItem(AUTH_KEY);
+    localStorage.removeItem(AUTH_KEY);
+  }
+};
+
+/**
+ * Favorites Manager
+ */
+const FavoritesStore = {
+  getAll() {
+    try {
+      return JSON.parse(localStorage.getItem(FAVORITES_KEY) || '[]');
+    } catch (e) {
+      return [];
+    }
+  },
+
+  isFavorite(id) {
+    const list = this.getAll();
+    return list.includes(Number(id)) || list.includes(String(id));
+  },
+
+  toggle(id) {
+    let list = this.getAll();
+    const numId = Number(id);
+    if (list.includes(numId)) {
+      list = list.filter(item => item !== numId);
+    } else {
+      list.push(numId);
+    }
+    localStorage.setItem(FAVORITES_KEY, JSON.stringify(list));
+    return list.includes(numId);
+  }
+};
+
+/**
+ * WhatsApp Helper for Manaki Laptop Deals
+ */
+const WhatsAppHelper = {
+  getNumber() {
+    return localStorage.getItem('manaki_whatsapp_number') || DEFAULT_WHATSAPP_NUMBER;
+  },
+
+  setNumber(num) {
+    let clean = String(num).replace(/\D/g, '');
+    if (clean.startsWith('0')) {
+      clean = '233' + clean.slice(1);
+    }
+    if (!clean.startsWith('233') && clean.length === 9) {
+      clean = '233' + clean;
+    }
+    localStorage.setItem('manaki_whatsapp_number', clean || DEFAULT_WHATSAPP_NUMBER);
+    return clean || DEFAULT_WHATSAPP_NUMBER;
+  },
+
+  getInquiryUrl(laptop) {
+    const phone = this.getNumber();
+    const text = encodeURIComponent(
+      `Hello Manaki Laptop Deals! 👋\n` +
+      `I am interested in buying this laptop:\n\n` +
+      `📌 Model: *${laptop.title}* (ID #${laptop.number || laptop.id})\n` +
+      `⚙️ Specs: ${laptop.processor} | ${laptop.ram} RAM | ${laptop.storage}\n` +
+      `💰 Price: *${laptop.priceFormatted}*\n\n` +
+      `Is this laptop currently in stock? Please send more details or delivery information.`
+    );
+    return `https://wa.me/${phone}?text=${text}`;
+  },
+
+  getGeneralContactUrl() {
+    const phone = this.getNumber();
+    const text = encodeURIComponent(
+      `Hello Manaki Laptop Deals! 👋\nI am browsing your website catalog and would like to ask some questions regarding available laptops and delivery in Ghana.`
+    );
+    return `https://wa.me/${phone}?text=${text}`;
+  }
+};
+
+/**
+ * Route & Link Navigation Helper
+ * Automatically handles routing between standalone HTML pages and Google Apps Script Web App (?page=X&id=Y)
+ */
+const RouteHelper = {
+  isGAS() {
+    return Boolean(
+      (typeof window !== 'undefined' && window.GAS_EXEC_URL) ||
+      (typeof google !== 'undefined' && typeof google.script !== 'undefined') ||
+      (typeof window !== 'undefined' && window.location && window.location.hostname && window.location.hostname.includes('script.google.com'))
+    );
+  },
+
+  getBaseUrl() {
+    if (typeof window !== 'undefined') {
+      if (window.GAS_EXEC_URL) return window.GAS_EXEC_URL;
+      if (this.isGAS() && window.location) return window.location.href.split('?')[0];
+    }
+    return '';
+  },
+
+  getHomeUrl() {
+    if (this.isGAS()) {
+      return this.getBaseUrl();
+    }
+    return 'index.html';
+  },
+
+  getDetailUrl(id) {
+    if (this.isGAS()) {
+      return `${this.getBaseUrl()}?page=detail&id=${encodeURIComponent(id)}`;
+    }
+    return `detail.html?id=${encodeURIComponent(id)}`;
+  },
+
+  getAdminUrl() {
+    if (this.isGAS()) {
+      return `${this.getBaseUrl()}?page=admin`;
+    }
+    return 'manaki_admin.html';
+  },
+
+  fixStaticLinks() {
+    if (typeof document === 'undefined' || !this.isGAS()) return;
+    document.querySelectorAll('a[href]').forEach(a => {
+      const href = a.getAttribute('href');
+      if (!href) return;
+      if (href === 'index.html' || href === './index.html') {
+        a.setAttribute('href', this.getHomeUrl());
+      } else if (href.startsWith('detail.html?id=')) {
+        const id = href.split('id=')[1];
+        a.setAttribute('href', this.getDetailUrl(id));
+      } else if (href === 'manaki_admin.html' || href === './manaki_admin.html') {
+        a.setAttribute('href', this.getAdminUrl());
+      }
+    });
+  }
+};
+
+/**
+ * Image Helper
+ * Handles Google Drive CDN URLs and fail-safe fallback transitions
+ */
+const ImageHelper = {
+  format(url) {
+    if (!url) return this.getPlaceholder();
+    return url;
+  },
+
+  getPlaceholder(title, brand) {
+    const text = encodeURIComponent(title || brand || 'Manaki Laptop');
+    return `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400" fill="%23f1f3f5"><rect width="600" height="400" fill="%231a1a1a"/><text x="50%" y="45%" dominant-baseline="middle" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto" font-size="48" fill="%23ffffff">💻</text><text x="50%" y="65%" dominant-baseline="middle" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto" font-size="20" font-weight="bold" fill="%2334d399">${text}</text><text x="50%" y="78%" dominant-baseline="middle" text-anchor="middle" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Roboto" font-size="14" fill="%239ca3af">Manaki Laptop Deals · Ghana</text></svg>`;
+  },
+
+  handleError(imgEl, laptopNumber) {
+    if (!imgEl) return;
+    
+    // If it's a direct Google UserContent URL, try thumbnail format
+    if (imgEl.src.includes('lh3.googleusercontent.com/d/')) {
+      const parts = imgEl.src.split('/d/');
+      if (parts[1]) {
+        const fileId = parts[1].split('?')[0].split('/')[0];
+        imgEl.src = `https://drive.google.com/thumbnail?id=${fileId}&sz=w1200`;
+        return;
+      }
+    }
+    
+    // If thumbnail failed, try Google Drive export view
+    if (imgEl.src.includes('drive.google.com/thumbnail')) {
+      const match = imgEl.src.match(/id=([a-zA-Z0-9_-]+)/);
+      if (match && match[1]) {
+        imgEl.src = `https://drive.google.com/uc?export=view&id=${match[1]}`;
+        return;
+      }
+    }
+
+    // Fallback to local image if available and NOT on GAS
+    if (!imgEl.dataset.triedLocal && laptopNumber && !RouteHelper.isGAS()) {
+      imgEl.dataset.triedLocal = '1';
+      imgEl.src = `images/L ${laptopNumber} A.webp`;
+      return;
+    }
+
+    // Ultimate SVG fallback
+    imgEl.onerror = null;
+    imgEl.src = this.getPlaceholder('Laptop #' + (laptopNumber || ''), 'Manaki Deals');
+  }
+};
+
+/**
+ * Cloud Sync Helper
+ * Manages synchronization with Google Apps Script Web App & Google Drive
+ */
+const CloudSyncHelper = {
+  getApiUrl() {
+    if (typeof window !== 'undefined') {
+      if (window.GAS_EXEC_URL) return window.GAS_EXEC_URL;
+      return localStorage.getItem('manaki_gas_api_url') || '';
+    }
+    return '';
+  },
+
+  setApiUrl(url) {
+    if (url) {
+      localStorage.setItem('manaki_gas_api_url', url.trim());
+    } else {
+      localStorage.removeItem('manaki_gas_api_url');
+    }
+  },
+
+  async syncDriveImages() {
+    // If running inside Google Apps Script Web App:
+    if (typeof google !== 'undefined' && google.script && google.script.run) {
+      return new Promise((resolve, reject) => {
+        google.script.run
+          .withSuccessHandler(res => {
+            if (res && res.success && res.laptops) {
+              localStorage.setItem(STORAGE_KEY, JSON.stringify(res.laptops));
+            }
+            resolve(res);
+          })
+          .withFailureHandler(err => {
+            reject(err);
+          })
+          .syncDriveImages();
+      });
+    }
+
+    // If running externally (e.g. localhost, GitHub Pages):
+    const apiUrl = this.getApiUrl();
+    if (!apiUrl) {
+      return {
+        success: false,
+        message: 'No Google Apps Script Web App URL configured. Please deploy the script in Google Apps Script and enter the Web App URL in Cloud Settings.'
+      };
+    }
+
+    try {
+      const targetUrl = `${apiUrl}?action=syncDriveImages`;
+      const res = await fetch(targetUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain' },
+        body: JSON.stringify({ action: 'syncDriveImages' }),
+        redirect: 'follow'
+      });
+      const data = await res.json();
+      if (data.success && data.laptops) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(data.laptops));
+      }
+      return data;
+    } catch (err) {
+      return {
+        success: false,
+        message: 'Could not connect to Google Apps Script Web App: ' + err.message
+      };
+    }
+  },
+
+  async testConnection() {
+    if (typeof google !== 'undefined' && google.script && google.script.run) {
+      return { success: true, message: 'Connected directly via Google Apps Script runtime.' };
+    }
+
+    const apiUrl = this.getApiUrl();
+    if (!apiUrl) {
+      return { success: false, message: 'Google Apps Script URL is empty.' };
+    }
+
+    try {
+      const res = await fetch(`${apiUrl}?action=health`, { redirect: 'follow' });
+      const data = await res.json();
+      return { success: true, data };
+    } catch (err) {
+      return { success: false, message: err.message };
+    }
+  }
+};
+
+// Initialize on script load
+LaptopStore.init();
+
+// Automatically update static links if running in Google Apps Script
+if (typeof document !== 'undefined') {
+  document.addEventListener('DOMContentLoaded', () => {
+    RouteHelper.fixStaticLinks();
+  });
+}
+
+  </script>
+  <script>
+/**
+ * Admin Portal Controller (manaki_admin.html)
+ * Handles static password authentication ('Fakeme@12345') and
+ * full client-side CRUD capabilities for laptop listings.
+ */
+
+document.addEventListener('DOMContentLoaded', () => {
+  LaptopStore.init();
+
+  // Authentication UI Elements
+  const loginOverlay = document.getElementById('adminLoginOverlay');
+  const adminPortal = document.getElementById('adminPortal');
+  const loginForm = document.getElementById('adminLoginForm');
+  const passwordInput = document.getElementById('adminPasswordInput');
+  const loginErrorMsg = document.getElementById('loginErrorMsg');
+  const togglePwdBtn = document.getElementById('togglePwdBtn');
+  const logoutBtn = document.getElementById('adminLogoutBtn');
+
+  // Dashboard Elements
+  const statTotalLaptops = document.getElementById('statTotalLaptops');
+  const statAvailable = document.getElementById('statAvailable');
+  const statSold = document.getElementById('statSold');
+  const statTotalValue = document.getElementById('statTotalValue');
+  const adminSearchInput = document.getElementById('adminSearchInput');
+  const adminStatusFilter = document.getElementById('adminStatusFilter');
+  const adminTableBody = document.getElementById('adminTableBody');
+
+  // Action Buttons
+  const btnOpenAddModal = document.getElementById('btnOpenAddModal');
+  const btnResetData = document.getElementById('btnResetData');
+  const btnExportData = document.getElementById('btnExportData');
+  const btnImportData = document.getElementById('btnImportData');
+  const importFileInput = document.getElementById('importFileInput');
+
+  // Modal Elements
+  const laptopModal = document.getElementById('laptopModal');
+  const modalCloseBtn = document.getElementById('modalCloseBtn');
+  const modalCancelBtn = document.getElementById('modalCancelBtn');
+  const laptopForm = document.getElementById('laptopForm');
+  const modalTitle = document.getElementById('modalTitle');
+  const formLaptopId = document.getElementById('formLaptopId');
+  const modalImagePreviewList = document.getElementById('modalImagePreviewList');
+  const addImageUrlInput = document.getElementById('addImageUrlInput');
+  const btnAddImageUrl = document.getElementById('btnAddImageUrl');
+  const imageUploadInput = document.getElementById('imageUploadInput');
+
+  // State
+  let editingImages = [];
+
+  // ==========================================
+  // AUTHENTICATION LOGIC
+  // ==========================================
+  function checkAuth() {
+    if (AdminAuth.isAuthenticated()) {
+      loginOverlay.style.display = 'none';
+      adminPortal.classList.add('active');
+      renderDashboard();
+    } else {
+      loginOverlay.style.display = 'flex';
+      adminPortal.classList.remove('active');
+      passwordInput.value = '';
+      if (loginErrorMsg) loginErrorMsg.classList.remove('visible');
+    }
+  }
+
+  // Handle Login Submit
+  if (loginForm) {
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const enteredPassword = passwordInput.value;
+      const res = AdminAuth.login(enteredPassword);
+
+      if (res.success) {
+        checkAuth();
+        showToast('Welcome back, Admin! 🔓', 'success');
+      } else {
+        loginErrorMsg.textContent = res.message;
+        loginErrorMsg.classList.add('visible');
+        loginForm.classList.add('shake');
+        setTimeout(() => loginForm.classList.remove('shake'), 500);
+      }
+    });
+  }
+
+  // Toggle Password Visibility
+  if (togglePwdBtn) {
+    togglePwdBtn.addEventListener('click', () => {
+      const type = passwordInput.type === 'password' ? 'text' : 'password';
+      passwordInput.type = type;
+    });
+  }
+
+  // Handle Logout
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', () => {
+      AdminAuth.logout();
+      checkAuth();
+      showToast('Logged out successfully.');
+    });
+  }
+
+  // ==========================================
+  // DASHBOARD RENDERING & STATS
+  // ==========================================
+  function renderDashboard() {
+    const laptops = LaptopStore.getAll();
+
+    // Calculate KPIs
+    const totalCount = laptops.length;
+    const availableCount = laptops.filter(l => l.status !== 'Sold Out').length;
+    const soldCount = laptops.filter(l => l.status === 'Sold Out').length;
+    const totalValue = laptops
+      .filter(l => l.status !== 'Sold Out')
+      .reduce((sum, l) => sum + (Number(l.price) || 0), 0);
+
+    if (statTotalLaptops) statTotalLaptops.textContent = totalCount;
+    if (statAvailable) statAvailable.textContent = availableCount;
+    if (statSold) statSold.textContent = soldCount;
+    if (statTotalValue) statTotalValue.textContent = `GH₵${totalValue.toLocaleString()}`;
+
+    updateWhatsAppDisplay();
+    renderTable();
+  }
+
+  // Update WhatsApp display in admin bar
+  function updateWhatsAppDisplay() {
+    const display = document.getElementById('currentWhatsAppDisplay');
+    if (display) {
+      const num = WhatsAppHelper.getNumber();
+      let formatted = num;
+      if (num.startsWith('233')) {
+        formatted = '0' + num.slice(3);
+      }
+      display.textContent = formatted;
+    }
+  }
+
+  // Render Admin Table
+  function renderTable() {
+    if (!adminTableBody) return;
+    const all = LaptopStore.getAll();
+    const query = (adminSearchInput ? adminSearchInput.value : '').toLowerCase().trim();
+    const statusFilter = adminStatusFilter ? adminStatusFilter.value : 'all';
+
+    let filtered = all.filter(l => {
+      const matchesQuery = !query || (
+        l.title.toLowerCase().includes(query) ||
+        l.brand.toLowerCase().includes(query) ||
+        l.processor.toLowerCase().includes(query) ||
+        String(l.number || l.id).includes(query)
+      );
+
+      const matchesStatus = statusFilter === 'all' || (
+        statusFilter === 'available' ? l.status !== 'Sold Out' : l.status === 'Sold Out'
+      );
+
+      return matchesQuery && matchesStatus;
+    });
+
+    if (filtered.length === 0) {
+      adminTableBody.innerHTML = `
+        <tr>
+          <td colspan="7" style="text-align: center; padding: 3rem; color: var(--text-muted);">
+            No laptops found matching current search.
+          </td>
+        </tr>
+      `;
+      return;
+    }
+
+    adminTableBody.innerHTML = filtered.map(l => {
+      const isSold = l.status === 'Sold Out';
+      const mainImg = (l.images && l.images[0]) || 'images/L 1 A.webp';
+
+      return `
+        <tr data-row-id="${l.id}">
+          <td style="font-weight: 700; color: var(--text-muted);">#${l.number || l.id}</td>
+          <td>
+            <img src="${mainImg}" alt="${l.title}" class="table-thumb" onerror="ImageHelper.handleError(this, '${l.number || l.id}')"/>
+          </td>
+          <td class="table-title-cell">
+            <div class="table-laptop-title">${l.title}</div>
+            <div class="table-laptop-specs">${l.brand} · ${l.processor} · ${l.ram} · ${l.storage}</div>
+          </td>
+          <td>
+            <div style="display: flex; align-items: center; gap: 0.35rem;">
+              <span style="font-size: 0.8rem; color: var(--text-muted);">GH₵</span>
+              <input 
+                type="number" 
+                class="table-price-input" 
+                value="${l.price}" 
+                data-price-id="${l.id}" 
+                title="Edit price & press enter"
+              />
+            </div>
+          </td>
+          <td>
+            <span 
+              class="status-pill-toggle ${isSold ? 'sold' : 'available'}" 
+              data-toggle-id="${l.id}"
+              title="Click to toggle status"
+            >
+              ${isSold ? '● Sold Out' : '● Available'}
+            </span>
+          </td>
+          <td>
+            <span style="font-size: 0.8rem; color: var(--text-muted);">${(l.images || []).length} photos</span>
+          </td>
+          <td>
+            <div class="table-actions">
+              <a href="${RouteHelper.getDetailUrl(l.id)}" target="_blank" class="btn-action-icon" title="View on site">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+              </a>
+              <button class="btn-action-icon edit" data-edit-id="${l.id}" title="Edit Laptop Specs">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
+                </svg>
+              </button>
+              <button class="btn-action-icon delete" data-delete-id="${l.id}" title="Delete Listing">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 6h18m-2 0v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6m3 0V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
+                </svg>
+              </button>
+            </div>
+          </td>
+        </tr>
+      `;
+    }).join('');
+
+    // Attach in-table event listeners
+    attachTableListeners();
+  }
+
+  function attachTableListeners() {
+    // Quick price change on Enter or Blur
+    document.querySelectorAll('.table-price-input').forEach(input => {
+      const savePrice = () => {
+        const id = input.getAttribute('data-price-id');
+        const val = Number(input.value);
+        if (val > 0) {
+          LaptopStore.update(id, { price: val });
+          showToast(`Price updated to GH₵${val.toLocaleString()} 💰`, 'success');
+          renderDashboard();
+        }
+      };
+
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          input.blur();
+        }
+      });
+      input.addEventListener('change', savePrice);
+    });
+
+    // Quick status toggle
+    document.querySelectorAll('.status-pill-toggle').forEach(pill => {
+      pill.addEventListener('click', () => {
+        const id = pill.getAttribute('data-toggle-id');
+        const laptop = LaptopStore.getById(id);
+        if (!laptop) return;
+
+        const newStatus = laptop.status === 'Sold Out' ? 'Available' : 'Sold Out';
+        LaptopStore.update(id, { status: newStatus });
+        showToast(`Marked #${id} as ${newStatus}`);
+        renderDashboard();
+      });
+    });
+
+    // Edit button click
+    document.querySelectorAll('.btn-action-icon.edit').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.getAttribute('data-edit-id');
+        openEditModal(id);
+      });
+    });
+
+    // Delete button click
+    document.querySelectorAll('.btn-action-icon.delete').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.getAttribute('data-delete-id');
+        const laptop = LaptopStore.getById(id);
+        if (!laptop) return;
+
+        if (confirm(`Are you sure you want to permanently delete "${laptop.title}" (ID #${id})?`)) {
+          LaptopStore.delete(id);
+          showToast(`Deleted "${laptop.title}"`, 'error');
+          renderDashboard();
+        }
+      });
+    });
+  }
+
+  // Live filter handlers
+  if (adminSearchInput) adminSearchInput.addEventListener('input', renderTable);
+  if (adminStatusFilter) adminStatusFilter.addEventListener('change', renderTable);
+
+  // ==========================================
+  // MODAL LOGIC (ADD / EDIT)
+  // ==========================================
+  function openAddModal() {
+    modalTitle.textContent = 'Add New Laptop Listing';
+    laptopForm.reset();
+    formLaptopId.value = '';
+    editingImages = ['images/L 1 A.webp'];
+    renderImagePreviews();
+    laptopModal.classList.add('active');
+  }
+
+  function openEditModal(id) {
+    const laptop = LaptopStore.getById(id);
+    if (!laptop) return;
+
+    modalTitle.textContent = `Edit Laptop (ID #${laptop.number || laptop.id})`;
+    formLaptopId.value = laptop.id;
+
+    // Populate inputs
+    document.getElementById('inputTitle').value = laptop.title || '';
+    document.getElementById('inputBrand').value = laptop.brand || 'Dell';
+    document.getElementById('inputCategory').value = laptop.category || 'Business';
+    document.getElementById('inputProcessor').value = laptop.processor || 'Intel Core i5';
+    document.getElementById('inputGeneration').value = laptop.generation || '';
+    document.getElementById('inputSpeed').value = laptop.speed || '';
+    document.getElementById('inputRam').value = laptop.ram || '8GB';
+    document.getElementById('inputStorage').value = laptop.storage || '256GB SSD';
+    document.getElementById('inputDisplay').value = laptop.display || '14" FHD Display';
+    document.getElementById('inputScreenSize').value = laptop.screenSize || '14"';
+    document.getElementById('inputGraphics').value = laptop.graphics || 'Integrated Intel UHD';
+    document.getElementById('inputPrice').value = laptop.price || '';
+    document.getElementById('inputOriginalPrice').value = laptop.originalPrice || '';
+    document.getElementById('inputStatus').value = laptop.status || 'Available';
+    document.getElementById('inputCondition').value = laptop.condition || 'Grade A+ Clean Direct Import';
+    document.getElementById('inputBattery').value = laptop.battery || 'Tested Strong Battery';
+    document.getElementById('inputDescription').value = laptop.description || '';
+
+    // Checkboxes
+    document.getElementById('checkTouch').checked = Boolean(laptop.isTouchscreen);
+    document.getElementById('checkConvertible').checked = Boolean(laptop.isConvertible);
+    document.getElementById('checkBacklit').checked = Boolean(laptop.hasBacklitKeyboard);
+    document.getElementById('checkFingerprint').checked = Boolean(laptop.hasFingerprint);
+    document.getElementById('checkDedicatedGpu').checked = Boolean(laptop.hasDedicatedGpu);
+    document.getElementById('checkFeatured').checked = Boolean(laptop.featured);
+
+    editingImages = [...(laptop.images || [])];
+    if (editingImages.length === 0) editingImages = ['images/L 1 A.webp'];
+    renderImagePreviews();
+
+    laptopModal.classList.add('active');
+  }
+
+  function closeModal() {
+    laptopModal.classList.remove('active');
+  }
+
+  if (btnOpenAddModal) btnOpenAddModal.addEventListener('click', openAddModal);
+  if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
+  if (modalCancelBtn) modalCancelBtn.addEventListener('click', closeModal);
+
+  // Render modal image thumbnails
+  function renderImagePreviews() {
+    if (!modalImagePreviewList) return;
+    modalImagePreviewList.innerHTML = editingImages.map((src, idx) => `
+      <div class="image-preview-chip">
+        <img src="${src}" alt="Preview" onerror="this.src='images/L 1 A.webp';"/>
+        <button type="button" class="image-remove-btn" data-img-idx="${idx}" title="Remove image">&times;</button>
+      </div>
+    `).join('');
+
+    // Attach remove handlers
+    modalImagePreviewList.querySelectorAll('.image-remove-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const idx = parseInt(btn.getAttribute('data-img-idx'), 10);
+        editingImages.splice(idx, 1);
+        if (editingImages.length === 0) editingImages = ['images/L 1 A.webp'];
+        renderImagePreviews();
+      });
+    });
+  }
+
+  // Add image by URL
+  if (btnAddImageUrl) {
+    btnAddImageUrl.addEventListener('click', () => {
+      const url = addImageUrlInput.value.trim();
+      if (url) {
+        editingImages.push(url);
+        addImageUrlInput.value = '';
+        renderImagePreviews();
+      }
+    });
+  }
+
+  // Upload image from computer file
+  if (imageUploadInput) {
+    imageUploadInput.addEventListener('change', (e) => {
+      const files = Array.from(e.target.files);
+      files.forEach(file => {
+        const reader = new FileReader();
+        reader.onload = (loadEvt) => {
+          editingImages.push(loadEvt.target.result);
+          renderImagePreviews();
+        };
+        reader.readAsDataURL(file);
+      });
+      imageUploadInput.value = '';
+    });
+  }
+
+  // Form Submit (Save Laptop)
+  if (laptopForm) {
+    laptopForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const id = formLaptopId.value;
+      const isTouch = document.getElementById('checkTouch').checked;
+      const isConv = document.getElementById('checkConvertible').checked;
+      const isBacklit = document.getElementById('checkBacklit').checked;
+      const hasFp = document.getElementById('checkFingerprint').checked;
+      const hasGpu = document.getElementById('checkDedicatedGpu').checked;
+
+      // Build features list
+      const features = [];
+      if (isTouch) features.push('Touchscreen');
+      if (isConv) features.push('360° Convertible');
+      if (isBacklit) features.push('Backlit Keyboard');
+      if (hasFp) features.push('Fingerprint Scanner');
+      if (hasGpu) features.push(document.getElementById('inputGraphics').value || 'Dedicated GPU');
+
+      const formData = {
+        title: document.getElementById('inputTitle').value.trim(),
+        brand: document.getElementById('inputBrand').value,
+        category: document.getElementById('inputCategory').value,
+        processor: document.getElementById('inputProcessor').value.trim(),
+        generation: document.getElementById('inputGeneration').value.trim(),
+        speed: document.getElementById('inputSpeed').value.trim(),
+        ram: document.getElementById('inputRam').value.trim(),
+        storage: document.getElementById('inputStorage').value.trim(),
+        display: document.getElementById('inputDisplay').value.trim(),
+        screenSize: document.getElementById('inputScreenSize').value.trim(),
+        graphics: document.getElementById('inputGraphics').value.trim(),
+        hasDedicatedGpu: hasGpu,
+        isTouchscreen: isTouch,
+        isConvertible: isConv,
+        hasBacklitKeyboard: isBacklit,
+        hasFingerprint: hasFp,
+        price: Number(document.getElementById('inputPrice').value) || 0,
+        originalPrice: Number(document.getElementById('inputOriginalPrice').value) || 0,
+        status: document.getElementById('inputStatus').value,
+        condition: document.getElementById('inputCondition').value.trim(),
+        battery: document.getElementById('inputBattery').value.trim(),
+        description: document.getElementById('inputDescription').value.trim(),
+        features: features,
+        images: editingImages.length > 0 ? editingImages : ['images/L 1 A.webp'],
+        featured: document.getElementById('checkFeatured').checked
+      };
+
+      if (id) {
+        // Update existing
+        LaptopStore.update(id, formData);
+        showToast(`Updated "${formData.title}" successfully! ✅`, 'success');
+      } else {
+        // Add new
+        LaptopStore.add(formData);
+        showToast(`Added "${formData.title}" to listings! 🚀`, 'success');
+      }
+
+      closeModal();
+      renderDashboard();
+    });
+  }
+
+  // ==========================================
+  // BACKUP, RESET, IMPORT & EXPORT
+  // ==========================================
+  if (btnResetData) {
+    btnResetData.addEventListener('click', () => {
+      if (confirm('Warning: This will restore the catalog to the initial 41 laptops shipment data and discard custom additions. Proceed?')) {
+        LaptopStore.resetToDefaults();
+        showToast('Reset to original shipment catalog! 🔄', 'info');
+        renderDashboard();
+      }
+    });
+  }
+
+  // WhatsApp Configuration Button
+  const btnWhatsAppConfig = document.getElementById('btnWhatsAppConfig');
+  if (btnWhatsAppConfig) {
+    btnWhatsAppConfig.addEventListener('click', () => {
+      const current = WhatsAppHelper.getNumber();
+      const currentLocal = current.startsWith('233') ? '0' + current.slice(3) : current;
+      const newNum = prompt('Enter seller WhatsApp phone number (e.g. 0543862551):', currentLocal);
+      if (newNum !== null && newNum.trim()) {
+        const saved = WhatsAppHelper.setNumber(newNum.trim());
+        updateWhatsAppDisplay();
+        showToast(`WhatsApp phone number updated to ${saved}! 💬`, 'success');
+      }
+    });
+  }
+
+  if (btnExportData) {
+    btnExportData.addEventListener('click', () => {
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(LaptopStore.exportJSON());
+      const downloadAnchor = document.createElement('a');
+      downloadAnchor.setAttribute("href", dataStr);
+      downloadAnchor.setAttribute("download", `manaki_laptops_backup_${new Date().toISOString().slice(0, 10)}.json`);
+      document.body.appendChild(downloadAnchor);
+      downloadAnchor.click();
+      downloadAnchor.remove();
+      showToast('Exported catalog backup JSON 📁', 'success');
+    });
+  }
+
+  if (btnImportData && importFileInput) {
+    btnImportData.addEventListener('click', () => importFileInput.click());
+    importFileInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = (evt) => {
+        const success = LaptopStore.importJSON(evt.target.result);
+        if (success) {
+          showToast('Imported inventory database successfully! 🎉', 'success');
+          renderDashboard();
+        } else {
+          showToast('Failed to import JSON: Invalid file format', 'error');
+        }
+      };
+      reader.readAsText(file);
+      importFileInput.value = '';
+    });
+  }
+
+  // ==========================================
+  // GOOGLE DRIVE & APPS SCRIPT CLOUD SYNC
+  // ==========================================
+  const btnSyncDriveImages = document.getElementById('btnSyncDriveImages');
+  const syncSpinIcon = document.getElementById('syncSpinIcon');
+  const syncBtnText = document.getElementById('syncBtnText');
+  const cloudSyncStatusText = document.getElementById('cloudSyncStatusText');
+  const cloudStatusBadge = document.getElementById('cloudStatusBadge');
+  const btnOpenCloudConfig = document.getElementById('btnOpenCloudConfig');
+  const cloudConfigModal = document.getElementById('cloudConfigModal');
+  const closeCloudModalBtn = document.getElementById('closeCloudModalBtn');
+  const cancelCloudModalBtn = document.getElementById('cancelCloudModalBtn');
+  const gasApiUrlInput = document.getElementById('gasApiUrlInput');
+  const btnTestCloudConnection = document.getElementById('btnTestCloudConnection');
+  const cloudTestStatus = document.getElementById('cloudTestStatus');
+  const saveCloudSettingsBtn = document.getElementById('saveCloudSettingsBtn');
+
+  if (btnSyncDriveImages) {
+    btnSyncDriveImages.addEventListener('click', async () => {
+      if (syncSpinIcon) syncSpinIcon.style.display = 'inline';
+      if (syncBtnText) syncBtnText.textContent = 'Scanning Drive...';
+      btnSyncDriveImages.disabled = true;
+
+      try {
+        const result = await CloudSyncHelper.syncDriveImages();
+        if (result && result.success) {
+          const msg = result.message || `Successfully synced ${result.totalImages || 0} photos from Google Drive!`;
+          showToast(msg, 'success');
+          if (cloudSyncStatusText) {
+            cloudSyncStatusText.innerHTML = `🟢 Synced ${result.totalImages || 0} photos across ${result.laptopsUpdated || 0} laptops from folder <strong>laptops</strong>`;
+          }
+          if (cloudStatusBadge) {
+            cloudStatusBadge.textContent = '🟢 Synced';
+          }
+          renderDashboard();
+        } else {
+          showToast(result.error || result.message || 'Drive sync failed. Check Drive folder name and permissions.', 'error');
+        }
+      } catch (err) {
+        showToast('Sync failed: ' + (err.message || err), 'error');
+      } finally {
+        if (syncSpinIcon) syncSpinIcon.style.display = 'none';
+        if (syncBtnText) syncBtnText.textContent = '🔄 Scan & Sync Drive Photos';
+        btnSyncDriveImages.disabled = false;
+      }
+    });
+  }
+
+  if (btnOpenCloudConfig && cloudConfigModal) {
+    btnOpenCloudConfig.addEventListener('click', () => {
+      if (gasApiUrlInput) {
+        gasApiUrlInput.value = CloudSyncHelper.getApiUrl();
+      }
+      if (cloudTestStatus) {
+        cloudTestStatus.textContent = '';
+      }
+      cloudConfigModal.style.display = 'flex';
+    });
+  }
+
+  function closeCloudModal() {
+    if (cloudConfigModal) cloudConfigModal.style.display = 'none';
+  }
+
+  if (closeCloudModalBtn) closeCloudModalBtn.addEventListener('click', closeCloudModal);
+  if (cancelCloudModalBtn) cancelCloudModalBtn.addEventListener('click', closeCloudModal);
+
+  if (btnTestCloudConnection) {
+    btnTestCloudConnection.addEventListener('click', async () => {
+      const url = gasApiUrlInput ? gasApiUrlInput.value.trim() : '';
+      if (!url && !RouteHelper.isGAS()) {
+        cloudTestStatus.textContent = '❌ Please enter a URL';
+        cloudTestStatus.style.color = '#dc2626';
+        return;
+      }
+      cloudTestStatus.textContent = '⏳ Testing...';
+      cloudTestStatus.style.color = '#2563eb';
+      
+      const prev = CloudSyncHelper.getApiUrl();
+      if (url) CloudSyncHelper.setApiUrl(url);
+      const res = await CloudSyncHelper.testConnection();
+      if (res.success) {
+        cloudTestStatus.textContent = '✅ Connected successfully!';
+        cloudTestStatus.style.color = '#16a34a';
+      } else {
+        cloudTestStatus.textContent = '❌ Error: ' + (res.message || 'Could not connect');
+        cloudTestStatus.style.color = '#dc2626';
+      }
+    });
+  }
+
+  if (saveCloudSettingsBtn) {
+    saveCloudSettingsBtn.addEventListener('click', () => {
+      const url = gasApiUrlInput ? gasApiUrlInput.value.trim() : '';
+      CloudSyncHelper.setApiUrl(url);
+      closeCloudModal();
+      showToast('Cloud settings saved successfully! ⚙️', 'success');
+    });
+  }
+
+  // Initial Auth Check
+  checkAuth();
+});
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <meta name="theme-color" content="#090a0f">
+  <title>Admin Portal - Manaki Laptop Deals Management</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-body">
+
+  <!-- ==========================================
+       LOGIN GATE SCREEN (STATIC PASSWORD CHECK)
+       ========================================== -->
+  <div class="admin-login-overlay" id="adminLoginOverlay">
+    <div class="login-card">
+      <div class="login-avatar">🔐</div>
+      <h1 class="login-title">Manaki Admin Portal</h1>
+      <p class="login-subtitle">Enter your static admin password to manage inventory, update prices, and edit laptop listings.</p>
+
+      <form id="adminLoginForm" class="login-form">
+        <div class="input-group">
+          <label for="adminPasswordInput" class="input-label">Admin Security Password</label>
+          <div class="password-input-wrapper">
+            <input 
+              type="password" 
+              id="adminPasswordInput" 
+              class="input-control" 
+              placeholder="Enter admin password..." 
+              autocomplete="current-password" 
+              required
+            />
+            <button type="button" class="toggle-pwd-btn" id="togglePwdBtn" title="Toggle password visibility">
+              👁️
+            </button>
+          </div>
+        </div>
+
+        <div class="login-error-msg" id="loginErrorMsg"></div>
+
+        <button type="submit" class="btn-login">Unlock Admin Dashboard</button>
+
+        <a href="index.html" class="login-footer-link">← Return to Public Storefront</a>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       AUTHENTICATED ADMIN PORTAL
+       ========================================== -->
+  <div class="admin-portal" id="adminPortal">
+    <!-- Admin Sticky Navbar -->
+    <header class="admin-navbar">
+      <div class="admin-nav-container">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <a href="index.html" class="brand-wrapper">
+            <div class="brand-icon">💻</div>
+            <span class="brand-title">Manaki Laptop Deals</span>
+          </a>
+          <span class="admin-badge">Admin Manager</span>
+        </div>
+
+        <div class="admin-actions">
+          <a href="index.html" class="btn-admin-nav" target="_blank" title="Preview Public Storefront">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+              <polyline points="15 3 21 3 21 9"/>
+              <line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+            View Website
+          </a>
+          <button class="btn-admin-nav danger" id="adminLogoutBtn" title="Sign out of Admin">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+              <polyline points="16 17 21 12 16 7"/>
+              <line x1="21" y1="12" x2="9" y2="12"/>
+            </svg>
+            Sign Out
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- KPI Statistics Grid -->
+    <section class="admin-stats-grid">
+      <div class="stat-kpi-card">
+        <span class="stat-kpi-title">Total Catalog</span>
+        <div class="stat-kpi-val" id="statTotalLaptops">0</div>
+        <span class="stat-kpi-badge">📦 Total Models in DB</span>
+      </div>
+
+      <div class="stat-kpi-card">
+        <span class="stat-kpi-title">In Stock</span>
+        <div class="stat-kpi-val" id="statAvailable" style="color: #34d399;">0</div>
+        <span class="stat-kpi-badge" style="color: #34d399;">Ready for Sale</span>
+      </div>
+
+      <div class="stat-kpi-card">
+        <span class="stat-kpi-title">Sold Out</span>
+        <div class="stat-kpi-val" id="statSold" style="color: #94a3b8;">0</div>
+        <span class="stat-kpi-badge" style="color: #94a3b8;">Archived / Sold</span>
+      </div>
+
+      <div class="stat-kpi-card">
+        <span class="stat-kpi-title">Active Inventory Value</span>
+        <div class="stat-kpi-val" id="statTotalValue" style="color: #38bdf8; font-size: 1.4rem;">GH₵0</div>
+        <span class="stat-kpi-badge" style="color: #38bdf8;">Ghana Cedis (GH₵)</span>
+      </div>
+    </section>
+
+    <!-- Google Cloud & Drive Sync Banner -->
+    <section class="admin-cloud-banner">
+      <div class="cloud-card-inner">
+        <div class="cloud-card-left">
+          <div class="cloud-icon-pill">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="cloud-card-title">
+              Google Drive & Apps Script Cloud Sync
+              <span class="cloud-status-badge" id="cloudStatusBadge">🟢 Ready</span>
+            </div>
+            <div class="cloud-card-sub" id="cloudSyncStatusText">
+              Connected to Google Drive folder <strong>laptops</strong> · Account: <code>yankeybuston@gmail.com</code>
+            </div>
+          </div>
+        </div>
+
+        <div class="cloud-card-actions">
+          <button class="btn-cloud-sync" id="btnSyncDriveImages" title="Scan Google Drive folder and match photos">
+            <span id="syncSpinIcon" style="display: none;">⏳</span>
+            <span id="syncBtnText">🔄 Scan & Sync Drive Photos</span>
+          </button>
+          <button class="btn-cloud-config" id="btnOpenCloudConfig" title="Configure Apps Script Web App URL">
+            ⚙️ Cloud Settings
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Admin Controls Toolbar -->
+    <section class="admin-toolbar-section">
+      <div class="admin-search-wrapper">
+        <div class="search-input-wrapper">
+          <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="m21 21-4.3-4.3"/>
+          </svg>
+          <input type="text" id="adminSearchInput" placeholder="Filter inventory by name, RAM, CPU..." />
+        </div>
+      </div>
+
+      <div class="admin-tools-btns">
+        <select class="sort-select" id="adminStatusFilter" aria-label="Filter by stock status">
+          <option value="all">All Statuses</option>
+          <option value="available">In Stock Only</option>
+          <option value="sold">Sold Out Only</option>
+        </select>
+
+        <button class="btn-admin-nav" id="btnWhatsAppConfig" title="Configure WhatsApp order number">
+          💬 WhatsApp: <span id="currentWhatsAppDisplay">0543862551</span>
+        </button>
+
+        <button class="btn-admin-nav" id="btnExportData" title="Export catalog as JSON backup">
+          💾 Export JSON
+        </button>
+
+        <button class="btn-admin-nav" id="btnImportData" title="Import catalog from JSON backup">
+          📥 Import JSON
+        </button>
+        <input type="file" id="importFileInput" accept=".json" style="display: none;" />
+
+        <button class="btn-admin-nav danger" id="btnResetData" title="Restore original 41 laptops shipment data">
+          🔄 Reset Defaults
+        </button>
+
+        <button class="btn-add-laptop" id="btnOpenAddModal">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="12" y1="5" x2="12" y2="19"/>
+            <line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+          Add Laptop
+        </button>
+      </div>
+    </section>
+
+    <!-- Inventory Data Table -->
+    <section class="admin-table-section">
+      <div class="admin-table-card">
+        <div class="table-responsive">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>No.</th>
+                <th>Photo</th>
+                <th>Model & Hardware Specs</th>
+                <th>Price (GH₵)</th>
+                <th>Stock Status</th>
+                <th>Photos</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="adminTableBody">
+              <!-- Dynamically populated via js/admin.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ==========================================
+       ADD / EDIT LAPTOP MODAL
+       ========================================== -->
+  <div class="modal-overlay" id="laptopModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2 class="modal-title" id="modalTitle">Add New Laptop Listing</h2>
+        <button class="modal-close-btn" id="modalCloseBtn">&times;</button>
+      </div>
+
+      <form id="laptopForm" class="modal-body">
+        <input type="hidden" id="formLaptopId" />
+
+        <!-- Title & Brand -->
+        <div class="form-grid-2">
+          <div class="input-group">
+            <label class="input-label" for="inputTitle">Laptop Title / Model *</label>
+            <input type="text" id="inputTitle" class="input-control" required placeholder="e.g. Dell XPS 15 7590" />
+          </div>
+
+          <div class="input-group">
+            <label class="input-label" for="inputBrand">Brand *</label>
+            <select id="inputBrand" class="input-control">
+              <option value="Dell">Dell</option>
+              <option value="HP">HP</option>
+              <option value="Lenovo">Lenovo</option>
+              <option value="Apple">Apple MacBook</option>
+              <option value="Samsung">Samsung</option>
+              <option value="Acer">Acer</option>
+              <option value="Microsoft">Microsoft Surface</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Category & Condition -->
+        <div class="form-grid-2">
+          <div class="input-group">
+            <label class="input-label" for="inputCategory">Category</label>
+            <select id="inputCategory" class="input-control">
+              <option value="Business">Business / Executive</option>
+              <option value="2-in-1 Touch">2-in-1 Touch / Convertible</option>
+              <option value="Ultrabook">Ultrabook / Premium</option>
+              <option value="Workstation">Workstation / Heavy Duty</option>
+              <option value="Gaming">Gaming Laptop</option>
+              <option value="Performance">High Performance</option>
+              <option value="Everyday">Everyday Computing</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label class="input-label" for="inputCondition">Physical Condition</label>
+            <input type="text" id="inputCondition" class="input-control" value="Grade A+ Clean Direct Import" />
+          </div>
+        </div>
+
+        <!-- Processor, Gen, Speed -->
+        <div class="form-grid-3">
+          <div class="input-group">
+            <label class="input-label" for="inputProcessor">Processor</label>
+            <input type="text" id="inputProcessor" class="input-control" placeholder="e.g. Intel Core i7" />
+          </div>
+
+          <div class="input-group">
+            <label class="input-label" for="inputGeneration">Generation</label>
+            <input type="text" id="inputGeneration" class="input-control" placeholder="e.g. 11th Gen" />
+          </div>
+
+          <div class="input-group">
+            <label class="input-label" for="inputSpeed">CPU Speed</label>
+            <input type="text" id="inputSpeed" class="input-control" placeholder="e.g. 2.80 GHz" />
+          </div>
+        </div>
+
+        <!-- RAM, Storage, Screen -->
+        <div class="form-grid-3">
+          <div class="input-group">
+            <label class="input-label" for="inputRam">RAM Memory</label>
+            <input type="text" id="inputRam" class="input-control" placeholder="e.g. 16GB" />
+          </div>
+
+          <div class="input-group">
+            <label class="input-label" for="inputStorage">Storage</label>
+            <input type="text" id="inputStorage" class="input-control" placeholder="e.g. 512GB SSD" />
+          </div>
+
+          <div class="input-group">
+            <label class="input-label" for="inputScreenSize">Screen Size</label>
+            <input type="text" id="inputScreenSize" class="input-control" placeholder='e.g. 14" or 15.6"' />
+          </div>
+        </div>
+
+        <!-- Display Specs & Graphics -->
+        <div class="form-grid-2">
+          <div class="input-group">
+            <label class="input-label" for="inputDisplay">Display Description</label>
+            <input type="text" id="inputDisplay" class="input-control" placeholder='e.g. 15.6" FHD IPS Display' />
+          </div>
+
+          <div class="input-group">
+            <label class="input-label" for="inputGraphics">Graphics / GPU</label>
+            <input type="text" id="inputGraphics" class="input-control" placeholder="e.g. 4GB Dedicated Graphics" />
+          </div>
+        </div>
+
+        <!-- Pricing & Stock Status -->
+        <div class="form-grid-3">
+          <div class="input-group">
+            <label class="input-label" for="inputPrice">Selling Price (GH₵) *</label>
+            <input type="number" id="inputPrice" class="input-control" required placeholder="e.g. 4800" />
+          </div>
+
+          <div class="input-group">
+            <label class="input-label" for="inputOriginalPrice">Original / Compare Price (GH₵)</label>
+            <input type="number" id="inputOriginalPrice" class="input-control" placeholder="e.g. 5300" />
+          </div>
+
+          <div class="input-group">
+            <label class="input-label" for="inputStatus">Stock Status</label>
+            <select id="inputStatus" class="input-control">
+              <option value="Available">Available</option>
+              <option value="Hot Deal">🔥 Hot Deal</option>
+              <option value="Almost New">✨ Almost New</option>
+              <option value="Sold Out">Sold Out</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Battery Health -->
+        <div class="input-group">
+          <label class="input-label" for="inputBattery">Battery Condition</label>
+          <input type="text" id="inputBattery" class="input-control" placeholder="e.g. Tested Strong Battery (8+ Hours)" />
+        </div>
+
+        <!-- Hardware Features Checkboxes -->
+        <div class="input-group">
+          <label class="input-label">Key Features & Flags</label>
+          <div class="features-checkbox-grid">
+            <label class="feature-checkbox-label">
+              <input type="checkbox" id="checkTouch" />
+              <span>Touchscreen</span>
+            </label>
+            <label class="feature-checkbox-label">
+              <input type="checkbox" id="checkConvertible" />
+              <span>360° Convertible</span>
+            </label>
+            <label class="feature-checkbox-label">
+              <input type="checkbox" id="checkBacklit" />
+              <span>Backlit Keyboard</span>
+            </label>
+            <label class="feature-checkbox-label">
+              <input type="checkbox" id="checkFingerprint" />
+              <span>Fingerprint Reader</span>
+            </label>
+            <label class="feature-checkbox-label">
+              <input type="checkbox" id="checkDedicatedGpu" />
+              <span>Dedicated GPU</span>
+            </label>
+            <label class="feature-checkbox-label">
+              <input type="checkbox" id="checkFeatured" />
+              <span>Featured on Homepage</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Description -->
+        <div class="input-group">
+          <label class="input-label" for="inputDescription">Marketing Description</label>
+          <textarea id="inputDescription" class="input-control" rows="3" placeholder="Engaging summary of condition and ideal use cases..."></textarea>
+        </div>
+
+        <!-- Photo Management -->
+        <div class="input-group">
+          <label class="input-label">Laptop Photos</label>
+          <div class="images-manager-list" id="modalImagePreviewList">
+            <!-- Image previews -->
+          </div>
+
+          <div style="display: flex; gap: 0.5rem; margin-top: 0.5rem;">
+            <input type="text" id="addImageUrlInput" class="input-control" placeholder="Add Image Path (e.g. images/L 1 A.webp or https://...)" />
+            <button type="button" class="btn-card-view" id="btnAddImageUrl" style="flex-shrink: 0;">Add URL</button>
+          </div>
+
+          <div style="margin-top: 0.5rem;">
+            <label class="btn-card-view" style="display: inline-flex; align-items: center; gap: 0.4rem; cursor: pointer;">
+              📁 Upload Pictures from Computer
+              <input type="file" id="imageUploadInput" accept="image/*" multiple style="display: none;" />
+            </label>
+          </div>
+        </div>
+
+        <!-- Footer Actions -->
+        <div class="modal-footer">
+          <button type="button" class="btn-card-view" id="modalCancelBtn">Cancel</button>
+          <button type="submit" class="btn-primary">Save Laptop Listing</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Cloud Settings Modal -->
+  <div class="modal-backdrop" id="cloudConfigModal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); align-items: center; justify-content: center; z-index: 1000; padding: 1rem;">
+    <div class="modal-card" style="width: 100%; max-width: 520px; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+      <div class="modal-header" style="padding: 1.25rem 1.5rem; border-bottom: 1px solid #e5e7eb; display: flex; justify-content: space-between; align-items: center;">
+        <h3 class="modal-title" style="font-size: 1.1rem; font-weight: 700; color: #121212; margin: 0;">⚙️ Google Apps Script & Drive Settings</h3>
+        <button class="modal-close-btn" id="closeCloudModalBtn" style="background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #6b7280;">&times;</button>
+      </div>
+      <div class="modal-body" style="padding: 1.5rem; display: flex; flex-direction: column; gap: 1.1rem;">
+        <p style="font-size: 0.86rem; color: #4b5563; line-height: 1.5; margin: 0;">
+          Connect this site to your Google Apps Script Web App. It automatically reads laptop photos directly from the <strong>laptops</strong> folder in your Google Drive (<code>yankeybuston@gmail.com</code>).
+        </p>
+
+        <div>
+          <label style="font-size: 0.82rem; font-weight: 700; color: #121212; display: block; margin-bottom: 0.4rem;">
+            Google Apps Script Web App Exec URL:
+          </label>
+          <input 
+            type="url" 
+            id="gasApiUrlInput" 
+            placeholder="https://script.google.com/macros/s/AKfycb.../exec" 
+            style="width: 100%; padding: 0.65rem 0.8rem; border: 1px solid #d1d5db; border-radius: 8px; font-size: 0.85rem; box-sizing: border-box;"
+          />
+          <small style="color: #6b7280; font-size: 0.76rem; display: block; margin-top: 0.35rem;">
+            From Google Apps Script: <em>Deploy → New deployment → Web app (Who has access: Anyone)</em>.
+          </small>
+        </div>
+
+        <div style="display: flex; gap: 0.75rem; align-items: center; margin-top: 0.25rem;">
+          <button type="button" class="btn-card-view" id="btnTestCloudConnection" style="padding: 0.5rem 0.9rem; font-size: 0.85rem;">
+            🔌 Test Connection
+          </button>
+          <span id="cloudTestStatus" style="font-size: 0.82rem; font-weight: 600;"></span>
+        </div>
+      </div>
+      <div class="modal-footer" style="padding: 1rem 1.5rem; border-top: 1px solid #e5e7eb; display: flex; justify-content: flex-end; gap: 0.75rem; background: #f9fafb;">
+        <button type="button" class="btn-card-view" id="cancelCloudModalBtn">Cancel</button>
+        <button type="button" class="btn-primary" id="saveCloudSettingsBtn">Save Settings</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

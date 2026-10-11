@@ -1,0 +1,820 @@
+/* ==========================================================================
+   MANAKI LAPTOP DEALS - SHOPIFY POLARIS ADMIN DASHBOARD
+   ========================================================================== */
+
+.admin-body {
+  background-color: #f6f6f7;
+  color: #202223;
+  min-height: 100vh;
+  padding-bottom: 3rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ==========================================================================
+   POLARIS LOGIN SCREEN
+   ========================================================================== */
+.admin-login-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: #f1f2f4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 500;
+  padding: 1.5rem;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  background-color: #ffffff;
+  border: 1px solid #d2d5d8;
+  border-radius: 12px;
+  padding: 2.25rem 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.login-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: #008060;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  margin: 0 auto 1.25rem;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(0, 128, 96, 0.3);
+}
+
+.login-title {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #202223;
+  margin-bottom: 0.35rem;
+}
+
+.login-subtitle {
+  font-size: 0.85rem;
+  color: #6d7175;
+  margin-bottom: 1.75rem;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.input-group {
+  position: relative;
+  text-align: left;
+}
+
+.input-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #202223;
+  margin-bottom: 0.4rem;
+}
+
+.input-control {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  background-color: #ffffff;
+  border: 1px solid #8c9196;
+  border-radius: 8px;
+  color: #202223;
+  font-size: 0.92rem;
+  transition: all 0.2s ease;
+}
+
+.input-control:focus {
+  outline: none;
+  border-color: #008060;
+  box-shadow: 0 0 0 2px rgba(0, 128, 96, 0.2);
+}
+
+.password-input-wrapper {
+  position: relative;
+}
+
+.toggle-pwd-btn {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6d7175;
+  padding: 4px;
+}
+
+.login-error-msg {
+  color: #d82c0d;
+  font-size: 0.82rem;
+  font-weight: 600;
+  display: none;
+  text-align: center;
+}
+
+.login-error-msg.visible {
+  display: block;
+}
+
+.btn-login {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #008060;
+  color: white;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 128, 96, 0.3);
+  transition: all 0.2s ease;
+  margin-top: 0.5rem;
+}
+
+.btn-login:hover {
+  background-color: #006e52;
+}
+
+.login-footer-link {
+  margin-top: 1.25rem;
+  font-size: 0.84rem;
+  color: #6d7175;
+  display: inline-block;
+}
+
+.login-footer-link:hover {
+  color: #202223;
+  text-decoration: underline;
+}
+
+.shake {
+  animation: shake 0.4s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-8px); }
+  40%, 80% { transform: translateX(8px); }
+}
+
+/* ==========================================================================
+   POLARIS ADMIN DASHBOARD
+   ========================================================================== */
+.admin-portal {
+  display: none;
+}
+
+.admin-portal.active {
+  display: block;
+}
+
+.admin-navbar {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  border-bottom: 1px solid #2e2e2e;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.admin-nav-container {
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding: 0.85rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.admin-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.admin-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.btn-admin-nav {
+  padding: 0.45rem 0.9rem;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: #ffffff;
+  border: 1px solid #d2d5d8;
+  color: #202223;
+  transition: all 0.15s ease;
+}
+
+.btn-admin-nav:hover {
+  background-color: #f1f2f3;
+}
+
+.btn-admin-nav.danger {
+  color: #d82c0d;
+  border-color: #fed3d1;
+  background-color: #fff4f4;
+}
+
+.btn-admin-nav.danger:hover {
+  background-color: #ffebe8;
+}
+
+/* Stats / KPI Cards */
+.admin-stats-grid {
+  max-width: var(--max-content-width);
+  margin: 1.5rem auto 0;
+  padding: 0 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .admin-stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.stat-kpi-card {
+  background-color: #ffffff;
+  border: 1px solid #d2d5d8;
+  border-radius: 10px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.stat-kpi-title {
+  font-size: 0.78rem;
+  color: #6d7175;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.stat-kpi-val {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: #202223;
+}
+
+.stat-kpi-badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #008060;
+}
+
+/* Toolbar Controls */
+.admin-toolbar-section {
+  max-width: var(--max-content-width);
+  margin: 1.5rem auto 0;
+  padding: 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .admin-toolbar-section {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.admin-search-wrapper {
+  flex: 1;
+  max-width: 360px;
+}
+
+.admin-tools-btns {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.btn-add-laptop {
+  background-color: #008060;
+  color: #ffffff;
+  padding: 0.55rem 1.15rem;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.86rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0, 128, 96, 0.25);
+  transition: all 0.15s ease;
+}
+
+.btn-add-laptop:hover {
+  background-color: #006e52;
+}
+
+/* Table Card */
+.admin-table-section {
+  max-width: var(--max-content-width);
+  margin: 1rem auto 3rem;
+  padding: 0 1.25rem;
+}
+
+.admin-table-card {
+  background-color: #ffffff;
+  border: 1px solid #d2d5d8;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.table-responsive {
+  overflow-x: auto;
+  width: 100%;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.88rem;
+}
+
+.admin-table th {
+  background-color: #f7f7f8;
+  padding: 0.85rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #5c5f62;
+  border-bottom: 1px solid #e1e3e5;
+  white-space: nowrap;
+}
+
+.admin-table td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid #e1e3e5;
+  vertical-align: middle;
+}
+
+.admin-table tr:last-child td {
+  border-bottom: none;
+}
+
+.admin-table tr:hover {
+  background-color: #fcfcfc;
+}
+
+.table-thumb {
+  width: 52px;
+  height: 40px;
+  border-radius: 4px;
+  object-fit: cover;
+  background-color: #f4f6f8;
+  border: 1px solid #e1e3e5;
+}
+
+.table-title-cell {
+  max-width: 260px;
+}
+
+.table-laptop-title {
+  font-weight: 700;
+  color: #202223;
+  line-height: 1.25;
+}
+
+.table-laptop-specs {
+  font-size: 0.75rem;
+  color: #6d7175;
+}
+
+.table-price-input {
+  width: 100px;
+  padding: 0.35rem 0.5rem;
+  background-color: #ffffff;
+  border: 1px solid #8c9196;
+  border-radius: 4px;
+  color: #202223;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.table-price-input:focus {
+  outline: none;
+  border-color: #008060;
+  box-shadow: 0 0 0 2px rgba(0, 128, 96, 0.2);
+}
+
+.status-pill-toggle {
+  cursor: pointer;
+  user-select: none;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: all 0.15s ease;
+}
+
+.status-pill-toggle.available {
+  background-color: #e3f1df;
+  color: #008060;
+  border: 1px solid rgba(0, 128, 96, 0.3);
+}
+
+.status-pill-toggle.sold {
+  background-color: #f1f2f3;
+  color: #5c5f62;
+  border: 1px solid #d2d5d8;
+}
+
+.table-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.btn-action-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  border: 1px solid #d2d5d8;
+  color: #5c5f62;
+  transition: all 0.15s ease;
+  font-size: 0.88rem;
+}
+
+.btn-action-icon:hover {
+  color: #202223;
+  background-color: #f6f6f7;
+  border-color: #8c9196;
+}
+
+.btn-action-icon.edit:hover {
+  color: #008060;
+  border-color: #008060;
+}
+
+.btn-action-icon.delete:hover {
+  color: #d82c0d;
+  border-color: #d82c0d;
+  background-color: #fff4f4;
+}
+
+/* ==========================================================================
+   POLARIS MODAL
+   ========================================================================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(32, 34, 35, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-card {
+  width: 100%;
+  max-width: 720px;
+  max-height: 90vh;
+  background-color: #ffffff;
+  border: 1px solid #d2d5d8;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.modal-header {
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid #e1e3e5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #202223;
+}
+
+.modal-close-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  background-color: #f1f2f3;
+  color: #5c5f62;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: all 0.15s ease;
+}
+
+.modal-close-btn:hover {
+  color: #202223;
+  background-color: #e1e3e5;
+}
+
+.modal-body {
+  padding: 1.5rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 600px) {
+  .form-grid-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.form-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 600px) {
+  .form-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.features-checkbox-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.6rem;
+  background-color: #f7f7f8;
+  padding: 0.85rem;
+  border-radius: 6px;
+  border: 1px solid #e1e3e5;
+}
+
+@media (min-width: 600px) {
+  .features-checkbox-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.feature-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.82rem;
+  color: #202223;
+  cursor: pointer;
+}
+
+.feature-checkbox-label input {
+  accent-color: #008060;
+}
+
+.images-manager-list {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  overflow-x: auto;
+  padding: 0.5rem 0;
+}
+
+.image-preview-chip {
+  position: relative;
+  width: 72px;
+  height: 56px;
+  border-radius: 4px;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 1px solid #d2d5d8;
+}
+
+.image-preview-chip img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-remove-btn {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #d82c0d;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+}
+
+.modal-footer {
+  padding: 1.25rem 1.5rem;
+  border-top: 1px solid #e1e3e5;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  background-color: #f7f7f8;
+}
+
+.btn-primary {
+  background-color: #008060;
+  color: #ffffff;
+  padding: 0.65rem 1.25rem;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: all 0.15s ease;
+}
+
+.btn-primary:hover {
+  background-color: #006e52;
+}
+
+.btn-card-view {
+  background-color: #ffffff;
+  border: 1px solid #d2d5d8;
+  color: #202223;
+  padding: 0.65rem 1.25rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.15s ease;
+}
+
+.btn-card-view:hover {
+  background-color: #f1f2f3;
+}
+
+/* ==========================================================================
+   GOOGLE DRIVE & APPS SCRIPT CLOUD BANNER
+   ========================================================================== */
+.admin-cloud-banner {
+  margin-bottom: 1.5rem;
+}
+
+.cloud-card-inner {
+  background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+  border: 1px solid #bbf7d0;
+  border-radius: 12px;
+  padding: 1.1rem 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  box-shadow: 0 2px 8px rgba(0, 128, 96, 0.06);
+}
+
+.cloud-card-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cloud-icon-pill {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background-color: #e3f1df;
+  color: #008060;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cloud-card-title {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #121212;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.cloud-status-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.15rem 0.55rem;
+  border-radius: 9999px;
+  background-color: #e3f1df;
+  color: #008060;
+  border: 1px solid #a7f3d0;
+}
+
+.cloud-card-sub {
+  font-size: 0.83rem;
+  color: #4b5563;
+  margin-top: 0.2rem;
+}
+
+.cloud-card-sub code {
+  background-color: #f1f5f9;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  color: #0f172a;
+}
+
+.cloud-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.btn-cloud-sync {
+  background-color: #008060;
+  color: #ffffff;
+  border: none;
+  padding: 0.65rem 1.15rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 128, 96, 0.25);
+}
+
+.btn-cloud-sync:hover {
+  background-color: #006e52;
+  transform: translateY(-1px);
+}
+
+.btn-cloud-config {
+  background-color: #ffffff;
+  color: #374151;
+  border: 1px solid #d1d5db;
+  padding: 0.65rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-cloud-config:hover {
+  background-color: #f9fafb;
+  border-color: #9ca3af;
+}
+
+@media (max-width: 768px) {
+  .cloud-card-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .cloud-card-actions {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
